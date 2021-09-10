@@ -1,7 +1,8 @@
 #pragma once
 
+#include <vector>
 
 class DiscordUser
 {
-	int id;
+	int64_t id;
 };

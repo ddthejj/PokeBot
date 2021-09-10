@@ -5,7 +5,11 @@ class DiscordUser;
 
 class DiscordServer
 {
-	int id;
+	DiscordServer() = default;
+	DiscordServer(int64_t In_ID);
+
+
+	int64_t id = -1;
 
 	std::map<int, DiscordUser> users;
 };

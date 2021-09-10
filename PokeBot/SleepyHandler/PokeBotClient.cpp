@@ -1,4 +1,7 @@
 #include "PokeBotClient.h"
+
+#include "../Users/Server.h"
+
 #include <time.h>
 #include <random>
 #include <string.h>
@@ -34,6 +37,14 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 			sendMessage(message.channelID, std::string("Unrecognized command \"") + command + "\"");
 		}
 	}
+}
+
+void PokeBotClient::onServer(SleepyDiscord::Server server)
+{
+	const int64_t serverID = server.ID.number();
+
+	DiscordServer joinedServer = DiscordServer(serverID);
+
 }
 
 void PokeBotClient::pkbData(SleepyDiscord::Message message)
