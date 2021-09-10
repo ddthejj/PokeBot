@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include <vector>
 
 #include <string>
 
@@ -23,7 +24,8 @@ enum class Type
 	Dark,
 	Dragon,
 	Steel,
-	Fairy
+	Fairy,
+	Type_Max
 };
 
 class Pokemon_Data
@@ -62,5 +64,5 @@ public:
 	Pokedex();
 
 
-	std::map<int, Pokemon_Data> pokedex;
+	std::map<int, std::vector<Pokemon_Data>> pokedex;
 };

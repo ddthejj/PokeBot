@@ -3,11 +3,11 @@
 #include <fstream>
 
 Pokemon_Data::Pokemon_Data(
-int In_DexNum, 
-std::string In_Name, std::string In_FormName, 
-Type In_Type1, Type In_Type2, 
-int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed, 
-int In_Gen, bool In_Legendary, int In_Stage)
+	int In_DexNum,
+	std::string In_Name, std::string In_FormName,
+	Type In_Type1, Type In_Type2,
+	int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed,
+	int In_Gen, bool In_Legendary, int In_Stage)
 {
 	DexNum = In_DexNum;
 	Name = In_Name;
@@ -247,24 +247,25 @@ Pokedex::Pokedex()
 			charAt++;
 			wordsAt++;
 		}
-		// ID,Name,Form,Type1,Type2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary,Stage
-
-		/*
-		int In_DexNum, 
-				std::string In_Name, std::string In_FormName, 
-				Type In_Type1, Type In_Type2, 
-				int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed, 
-				int In_Gen, bool In_Legendary, int In_Stage);
-		*/
 
 		Pokemon_Data newMon = Pokemon_Data(
-			atoi(words[0].c_str()), 
+			atoi(words[0].c_str()),
 			words[1], words[2],
-			Pokemon_Data::StringToType(words[3]), Pokemon_Data::StringToType(words[4]), 
+			Pokemon_Data::StringToType(words[3]), Pokemon_Data::StringToType(words[4]),
 			atoi(words[6].c_str()), atoi(words[7].c_str()), atoi(words[8].c_str()), atoi(words[9].c_str()), atoi(words[10].c_str()), atoi(words[11].c_str()),
 			atoi(words[12].c_str()), words[13] == std::string("TRUE"), atoi(words[14].c_str()));
 
-		pokedex.insert(std::pair<int, Pokemon_Data>(atoi(words[0].c_str()), newMon));
+		if (pokedex.count(newMon.DexNum))
+		{
+			pokedex[newMon.DexNum].push_back(newMon);
+		}
+		else
+		{
+			std::vector<Pokemon_Data> pokemonList;
+			pokemonList.push_back(newMon);
+
+			pokedex.insert(std::pair<int, std::vector<Pokemon_Data>>(atoi(words[0].c_str()), pokemonList));
+		}
 	}
 
 	file.close();

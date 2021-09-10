@@ -6,6 +6,11 @@
 typedef std::mt19937 rng_type;
 rng_type rng;
 
+PokeBotClient::PokeBotClient(const std::string token, const char numOfThreads) : SleepyDiscord::DiscordClient(token, numOfThreads)
+{
+	generator.SortPokemon(dex.pokedex);
+}
+
 void PokeBotClient::onMessage(SleepyDiscord::Message message)
 {
 	if (message.startsWith("-pkb "))
@@ -20,7 +25,7 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 		}
 		if (message.startsWith("-pkb encounter"))
 		{
-
+			pkbEncounter(message);
 		}
 	}
 }
@@ -40,9 +45,9 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 
 		for (int i = 1; i < dex.pokedex.size() + 1; i++)
 		{
-			if (0 == stricmp(dex.pokedex[i].Name.c_str(), params))
+			if (0 == stricmp(dex.pokedex[i][0].Name.c_str(), params))
 			{
-				auto monData = dex.pokedex[i];
+				auto monData = dex.pokedex[i][0];
 
 				char num[32];
 				itoa(i, num, 10);
@@ -88,7 +93,7 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 		std::uniform_int_distribution<rng_type::result_type> udist(1, dex.pokedex.size() + 1);
 		rng_type::result_type random_number = udist(rng);
 
-		Pokemon_Data monData = dex.pokedex[random_number];
+		Pokemon_Data monData = dex.pokedex[random_number][0];
 
 		char num[32];
 		itoa(random_number, num, 10);
@@ -126,12 +131,48 @@ void PokeBotClient::pkbGenerate(SleepyDiscord::Message message)
 	std::uniform_int_distribution<rng_type::result_type> udist(1, dex.pokedex.size() + 1);
 	rng_type::result_type random_number = udist(rng);
 
-	Pokemon_Data monData = dex.pokedex[random_number];
+	Pokemon_Data monData = dex.pokedex[random_number][0];
 
 	sendMessage(message.channelID, std::string("Random Pokemon: ") + monData.Name);
 }
 
 void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 {
+	if (message.length() > std::string("-pkb encounter").length())
+	{
+		const char* buffer = message.content.c_str();
+		const char* params = &(buffer[std::string("pkb encounter").length() + 1]);
 
+		// remove white space before parameters
+		while (*params == ' ')
+		{
+			params++;
+		}
+
+		Type type = Pokemon_Data::StringToType(params);
+
+		if (type != Type::None)
+		{
+			Pokemon_Data monData = generator.RandomPokemon(type, 1);
+			sendMessage(message.channelID, std::string("Encountered random ") + params + " type Pokemon, " + monData.Name + "!");
+		}
+		else
+		{
+			sendMessage(message.channelID, std::string("Invalid Type ") + params);
+		}
+
+	}
+	else
+	{
+		rng_type::result_type const seedval = time(NULL);
+		rng.seed(seedval);
+		std::uniform_int_distribution<rng_type::result_type> udist(1, (int)Type::Type_Max);
+		rng_type::result_type random_number = udist(rng);
+
+		Pokemon_Data monData = generator.RandomPokemon((Type)random_number, 1);
+
+		sendMessage(message.channelID,
+			std::string("Encountered random Pokemon, " + monData.Name + "!")
+		);
+	}
 }
