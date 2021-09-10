@@ -4,7 +4,9 @@ project(example)
 add_executable(PokeBot Source.cpp
 SleepyHandler/PokeBotClient.h SleepyHandler/PokeBotClient.cpp
 Pokemon/PokemonDatabase.h Pokemon/PokemonDatabase.cpp
-Map/Generator.h Map/Generator.cpp)
+Map/Generator.h Map/Generator.cpp 
+"Users/Server.h" "Users/Server.cpp" 
+"Users/User.cpp" "Users/User.h")
 
 add_subdirectory(deps/sleepy-discord)
 target_link_libraries(PokeBot sleepy-discord)

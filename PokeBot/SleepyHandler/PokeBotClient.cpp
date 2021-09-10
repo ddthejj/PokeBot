@@ -27,6 +27,12 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 		{
 			pkbEncounter(message);
 		}
+		else
+		{
+			const char* command;
+			command = &message.content.c_str()[5];
+			sendMessage(message.channelID, std::string("Unrecognized command \"") + command + "\"");
+		}
 	}
 }
 
