@@ -30,6 +30,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+build/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -361,3 +362,4 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+/PokeBot/out/build

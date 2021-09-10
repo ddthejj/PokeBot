@@ -1,0 +1,3 @@
+[submodule "PokeBot/deps/sleepy-discord"]
+	path = PokeBot/deps/sleepy-discord
+	url = https://github.com/yourWaifu/sleepy-discord.git
