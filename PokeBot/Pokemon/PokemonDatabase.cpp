@@ -1,4 +1,6 @@
 #include "PokemonDatabase.h"
+#include <iostream>
+#include <fstream>
 
 Pokemon_Data::Pokemon_Data(
 int In_DexNum, 
