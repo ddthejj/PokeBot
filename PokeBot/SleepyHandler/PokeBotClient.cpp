@@ -1,7 +1,5 @@
 #include "PokeBotClient.h"
 
-#include "../Users/Server.h"
-
 #include <time.h>
 #include <random>
 #include <string.h>
@@ -18,6 +16,11 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 {
 	if (message.startsWith("-pkb "))
 	{
+		if (!joinedServers[message.serverID.number()].IsUserRegistered(message.author.ID.number())) // check if user is not registered
+		{
+			joinedServers[message.serverID.number()].RegisterUser(message.author.ID.number());
+		}
+			   
 		if (message.content == ("-pkb generate"))
 		{
 			pkbGenerate(message);
@@ -42,9 +45,13 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 void PokeBotClient::onServer(SleepyDiscord::Server server)
 {
 	const int64_t serverID = server.ID.number();
-
 	DiscordServer joinedServer = DiscordServer(serverID);
 
+	joinedServers.insert(std::pair<int64_t, DiscordServer>(serverID, joinedServer));
+}
+
+void PokeBotClient::registerUser(SleepyDiscord::Message message)
+{
 }
 
 void PokeBotClient::pkbData(SleepyDiscord::Message message)

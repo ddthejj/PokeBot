@@ -1,15 +1,19 @@
 #pragma once
 #include <map>
 
-class DiscordUser;
+#include "User.h"
 
 class DiscordServer
 {
-	DiscordServer() = default;
-	DiscordServer(int64_t In_ID);
-
 
 	int64_t id = -1;
 
 	std::map<int, DiscordUser> users;
+
+public:
+	DiscordServer() = default;
+	DiscordServer(int64_t In_ID);
+
+	bool IsUserRegistered(int64_t In_ID);
+	void RegisterUser(int64_t In_ID);
 };

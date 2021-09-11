@@ -2,10 +2,9 @@
 #include "sleepy_discord/sleepy_discord.h"
 #include "../Pokemon/PokemonDatabase.h"
 #include "../Map/Generator.h"
+#include "../Users/Server.h"
 
 #include <vector>
-
-class DiscordServer;
 
 
 class PokeBotClient : public SleepyDiscord::DiscordClient
@@ -13,7 +12,7 @@ class PokeBotClient : public SleepyDiscord::DiscordClient
 	Pokedex dex;
 	Generator generator;
 
-	std::vector<DiscordServer> joinedServers;
+	std::map<int64_t, DiscordServer> joinedServers;
 
 public:
 
@@ -24,6 +23,8 @@ public:
 	void onMessage(SleepyDiscord::Message message) override;
 
 	void onServer(SleepyDiscord::Server server) override;
+
+	void registerUser(SleepyDiscord::Message message);
 
 	void pkbData(SleepyDiscord::Message message);
 
