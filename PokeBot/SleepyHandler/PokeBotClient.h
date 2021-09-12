@@ -24,11 +24,13 @@ public:
 
 	void onServer(SleepyDiscord::Server server) override;
 
-	void registerUser(SleepyDiscord::Message message);
-
 	void pkbData(SleepyDiscord::Message message);
 
 	void pkbGenerate(SleepyDiscord::Message message);
 
 	void pkbEncounter(SleepyDiscord::Message message);
+
+	void pkbCatch(SleepyDiscord::Message message);
+
+	void pkbParty(SleepyDiscord::Message message);
 };

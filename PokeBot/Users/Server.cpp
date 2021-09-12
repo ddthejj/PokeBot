@@ -1,6 +1,7 @@
 #include "Server.h"
 
 #include "User.h"
+#include "../Pokemon/PokemonDatabase.h"
 
 #include <string>
 
@@ -9,7 +10,7 @@
 
 #include <Windows.h>
 
-DiscordServer::DiscordServer(int64_t In_ID)
+DiscordServer::DiscordServer(int64_t In_ID, Pokedex dex)
 {
 	id = In_ID;
 
@@ -57,9 +58,9 @@ DiscordServer::DiscordServer(int64_t In_ID)
 				{
 					// user found
 					std::string filename = data.cFileName;
-					int userID = _atoi64(filename.c_str());
+					int64_t userID = _atoi64(filename.c_str());
 
-					DiscordUser user(userID);
+					DiscordUser user(userID, id);
 
 					std::fstream file(serverFilePath + "/" + filename);
 
@@ -73,7 +74,7 @@ DiscordServer::DiscordServer(int64_t In_ID)
 
 					file.close();
 
-					user.ParseFile(lines);
+					user.ParseFile(lines, dex);
 
 
 					users.insert(std::pair<int64_t, DiscordUser>(userID, user));
@@ -109,4 +110,9 @@ void DiscordServer::RegisterUser(int64_t In_ID)
 	serverFilePath += buffer;
 
 	CreateFile(serverFilePath.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, LPSECURITY_ATTRIBUTES(), CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
+}
+
+DiscordUser* DiscordServer::GetUser(int64_t ID)
+{
+	return &users[ID];
 }

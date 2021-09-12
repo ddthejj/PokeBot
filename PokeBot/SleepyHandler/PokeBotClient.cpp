@@ -20,18 +20,26 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 		{
 			joinedServers[message.serverID.number()].RegisterUser(message.author.ID.number());
 		}
-			   
+
 		if (message.content == ("-pkb generate"))
 		{
 			pkbGenerate(message);
 		}
-		if (message.startsWith("-pkb data"))
+		else if (message.startsWith("-pkb data"))
 		{
 			pkbData(message);
 		}
-		if (message.startsWith("-pkb encounter"))
+		else if (message.startsWith("-pkb encounter"))
 		{
 			pkbEncounter(message);
+		}
+		else if (message.startsWith("-pkb catch"))
+		{
+			pkbCatch(message);
+		}
+		else if (message.startsWith("-pkb party"))
+		{
+			pkbParty(message);
 		}
 		else
 		{
@@ -45,13 +53,9 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 void PokeBotClient::onServer(SleepyDiscord::Server server)
 {
 	const int64_t serverID = server.ID.number();
-	DiscordServer joinedServer = DiscordServer(serverID);
+	DiscordServer joinedServer = DiscordServer(serverID, dex);
 
 	joinedServers.insert(std::pair<int64_t, DiscordServer>(serverID, joinedServer));
-}
-
-void PokeBotClient::registerUser(SleepyDiscord::Message message)
-{
 }
 
 void PokeBotClient::pkbData(SleepyDiscord::Message message)
@@ -69,26 +73,26 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 
 		for (int i = 1; i < dex.pokedex.size() + 1; i++)
 		{
-			if (0 == stricmp(dex.pokedex[i][0].Name.c_str(), params))
+			if (0 == _stricmp(dex.pokedex[i][0].Name.c_str(), params))
 			{
 				auto monData = dex.pokedex[i][0];
 
 				char num[32];
-				itoa(i, num, 10);
+				_itoa_s(i, num, 10);
 				char hp[32];
-				itoa(monData.Base_HP, hp, 10);
+				_itoa_s(monData.Base_HP, hp, 10);
 				char att[32];
-				itoa(monData.Base_Attack, att, 10);
+				_itoa_s(monData.Base_Attack, att, 10);
 				char def[32];
-				itoa(monData.Base_Defense, def, 10);
+				_itoa_s(monData.Base_Defense, def, 10);
 				char spa[32];
-				itoa(monData.Base_SpAttack, spa, 10);
+				_itoa_s(monData.Base_SpAttack, spa, 10);
 				char spd[32];
-				itoa(monData.Base_SpDefense, spd, 10);
+				_itoa_s(monData.Base_SpDefense, spd, 10);
 				char sp[32];
-				itoa(monData.Base_Speed, sp, 10);
+				_itoa_s(monData.Base_Speed, sp, 10);
 				char stage[32];
-				itoa(monData.Stage, stage, 10);
+				_itoa_s(monData.Stage, stage, 10);
 
 				sendMessage(message.channelID,
 					std::string("#") + num + " " + monData.Name
@@ -112,27 +116,27 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 	}
 	else
 	{
-		rng_type::result_type const seedval = time(NULL);
+		rng_type::result_type const seedval = (unsigned int)time(NULL);
 		rng.seed(seedval);
-		std::uniform_int_distribution<rng_type::result_type> udist(1, dex.pokedex.size() + 1);
+		std::uniform_int_distribution<rng_type::result_type> udist(1, (int)dex.pokedex.size() + 1);
 		rng_type::result_type random_number = udist(rng);
 
 		Pokemon_Data monData = dex.pokedex[random_number][0];
 
 		char num[32];
-		itoa(random_number, num, 10);
+		_itoa_s(random_number, num, 10);
 		char hp[32];
-		itoa(monData.Base_HP, hp, 10);
+		_itoa_s(monData.Base_HP, hp, 10);
 		char att[32];
-		itoa(monData.Base_Attack, att, 10);
+		_itoa_s(monData.Base_Attack, att, 10);
 		char def[32];
-		itoa(monData.Base_Defense, def, 10);
+		_itoa_s(monData.Base_Defense, def, 10);
 		char spa[32];
-		itoa(monData.Base_SpAttack, spa, 10);
+		_itoa_s(monData.Base_SpAttack, spa, 10);
 		char spd[32];
-		itoa(monData.Base_SpDefense, spd, 10);
+		_itoa_s(monData.Base_SpDefense, spd, 10);
 		char sp[32];
-		itoa(monData.Base_Speed, sp, 10);
+		_itoa_s(monData.Base_Speed, sp, 10);
 
 		sendMessage(message.channelID,
 			std::string("Random Pokemon Data: \n") +
@@ -150,9 +154,9 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbGenerate(SleepyDiscord::Message message)
 {
-	rng_type::result_type const seedval = time(NULL);
+	rng_type::result_type const seedval = (unsigned int)time(NULL);
 	rng.seed(seedval);
-	std::uniform_int_distribution<rng_type::result_type> udist(1, dex.pokedex.size() + 1);
+	std::uniform_int_distribution<rng_type::result_type> udist(1, (int)dex.pokedex.size() + 1);
 	rng_type::result_type random_number = udist(rng);
 
 	Pokemon_Data monData = dex.pokedex[random_number][0];
@@ -162,6 +166,9 @@ void PokeBotClient::pkbGenerate(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 {
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+
+
 	if (message.length() > std::string("-pkb encounter").length())
 	{
 		const char* buffer = message.content.c_str();
@@ -177,8 +184,17 @@ void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 
 		if (type != Type::None)
 		{
-			Pokemon_Data monData = generator.RandomPokemon(type, 1);
-			sendMessage(message.channelID, std::string("Encountered random ") + params + " type Pokemon, " + monData.Name + "!");
+			if (!author->IsInEncounter())
+			{
+				Pokemon_Data monData = generator.RandomPokemon(type, 1);
+				sendMessage(message.channelID, std::string("Encountered random ") + params + " type Pokemon, " + monData.Name + "!");
+
+				author->StartEncounter(monData);
+			}
+			else
+			{
+				sendMessage(message.channelID, std::string("You're already in an encounter, ") + message.author.username);
+			}
 		}
 		else
 		{
@@ -188,15 +204,59 @@ void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 	}
 	else
 	{
-		rng_type::result_type const seedval = time(NULL);
-		rng.seed(seedval);
-		std::uniform_int_distribution<rng_type::result_type> udist(1, (int)Type::Type_Max);
-		rng_type::result_type random_number = udist(rng);
+		if (!author->IsInEncounter())
+		{
+			rng_type::result_type const seedval = (unsigned int)time(NULL);
+			rng.seed(seedval);
+			std::uniform_int_distribution<rng_type::result_type> udist(1, (int)Type::Type_Max - 1);
+			rng_type::result_type random_number = udist(rng);
 
-		Pokemon_Data monData = generator.RandomPokemon((Type)random_number, 1);
+			Pokemon_Data monData = generator.RandomPokemon((Type)random_number, 1);
 
-		sendMessage(message.channelID,
-			std::string("Encountered random Pokemon, " + monData.Name + "!")
-		);
+			sendMessage(message.channelID,
+				std::string("Encountered random Pokemon, " + monData.Name + "!")
+			);
+
+			author->StartEncounter(monData);
+		}
+		else
+		{
+			sendMessage(message.channelID, std::string("You're already in an encounter, ") + message.author.username);
+		}
 	}
+}
+
+void PokeBotClient::pkbCatch(SleepyDiscord::Message message)
+{
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+
+	if (author->IsInEncounter())
+	{
+		Pokemon_Data* mon = author->CatchEncounter();
+		sendMessage(message.channelID, std::string("You caught ") + mon->Name + "!");
+	}
+	else
+	{
+		sendMessage(message.channelID, std::string("What are you trying to catch, ") + message.author.username + "?");
+	}
+}
+
+void PokeBotClient::pkbParty(SleepyDiscord::Message message)
+{
+	std::vector<Pokemon_Data> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+	std::string partyStr;
+
+	for (int i = 0; i < party.size(); i++)
+	{
+		Pokemon_Data mon = party[i];
+
+		partyStr += mon.Name;
+
+		if (i < party.size() - 1)
+		{
+			partyStr += +",\n";
+		}
+	}
+
+	sendMessage(message.channelID, std::string("Trainer ") + message.author.username + " has the Pokemon:\n" + partyStr);
 }

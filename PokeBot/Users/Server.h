@@ -8,12 +8,14 @@ class DiscordServer
 
 	int64_t id = -1;
 
-	std::map<int, DiscordUser> users;
+	std::map<int64_t, DiscordUser> users;
 
 public:
 	DiscordServer() = default;
-	DiscordServer(int64_t In_ID);
+	DiscordServer(int64_t In_ID, Pokedex dex);
 
 	bool IsUserRegistered(int64_t In_ID);
 	void RegisterUser(int64_t In_ID);
+
+	DiscordUser* GetUser(int64_t ID);
 };

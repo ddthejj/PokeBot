@@ -6,7 +6,8 @@ SleepyHandler/PokeBotClient.h SleepyHandler/PokeBotClient.cpp
 Pokemon/PokemonDatabase.h Pokemon/PokemonDatabase.cpp
 Map/Generator.h Map/Generator.cpp 
 "Users/Server.h" "Users/Server.cpp" 
-"Users/User.cpp" "Users/User.h")
+"Users/User.cpp" "Users/User.h"
+Pokemon/Encounter.h Pokemon/Encounter.cpp)
 
 
 add_subdirectory(deps/sleepy-discord)
