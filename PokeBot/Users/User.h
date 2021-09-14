@@ -5,18 +5,17 @@
 
 class Pokemon_Data;
 class Pokedex;
-class Encounter;
+class Event;
+enum class EventType;
 class Server;
 
 class DiscordUser
 {
-	friend class Encounter;
-
 	int64_t id = -1;
 	int64_t serverID = -1;
 	std::vector<Pokemon_Data> party;
 
-	Encounter* activeEncounter = nullptr;
+	Event* currentEvent = nullptr;
 
 public:
 
@@ -29,14 +28,18 @@ public:
 
 	void Save();
 
-	bool IsInEncounter() { return activeEncounter != nullptr; }
+	bool TryCreateEvent(EventType type);
+
+	bool IsInEncounter() { return currentEvent != nullptr; }
 	void StartEncounter(Pokemon_Data mon);
 	Pokemon_Data* CatchEncounter();
+	void RunEncounter();
 	void EndEncounter();
 
 	const std::vector<Pokemon_Data> Party() { return party; }
 
+	void AddPokemon(Pokemon_Data mon);
+
 private:
 
-	void AddPokemon(Pokemon_Data mon);
 };

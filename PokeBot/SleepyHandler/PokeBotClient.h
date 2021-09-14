@@ -32,5 +32,9 @@ public:
 
 	void pkbCatch(SleepyDiscord::Message message);
 
+	void pkbRun(SleepyDiscord::Message message);
+
 	void pkbParty(SleepyDiscord::Message message);
+
+	void pkbRelease(SleepyDiscord::Message message);
 };

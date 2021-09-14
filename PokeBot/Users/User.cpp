@@ -1,16 +1,16 @@
 #include "User.h"
 
-#include "../Pokemon/Encounter.h"
+#include "../Event/Encounter.h"
 #include "../Users/Server.h"
 
 #include <Windows.h>
 
 DiscordUser::~DiscordUser()
 {
-	if (activeEncounter)
+	if (currentEvent)
 	{
-		delete activeEncounter;
-		activeEncounter = nullptr;
+		delete currentEvent;
+		currentEvent = nullptr;
 	}
 }
 
@@ -71,7 +71,7 @@ void DiscordUser::Save()
 	for (int i = 0; i < party.size(); i++)
 	{
 		Pokemon_Data mon = party[i];
-		char buffer [8];
+		char buffer[8];
 		itoa(mon.DexNum, buffer, 10);
 		std::string line = std::string(buffer) + '\n';
 
@@ -82,26 +82,68 @@ void DiscordUser::Save()
 	CloseHandle(hfile);
 }
 
+bool DiscordUser::TryCreateEvent(EventType type)
+{
+	if (!currentEvent) // user is not doing anything
+	{
+		switch (type)
+		{
+		case EventType::Encounter:
+		{
+
+		}
+		case EventType::Release:
+		{
+
+		}
+		default:
+		{
+
+		}
+		}
+		return true;
+	}
+	else  // user is in an event already
+	{
+		switch (currentEvent->Type())
+		{
+		case EventType::Encounter:
+		{
+
+		}
+		case EventType::Release:
+		{
+
+		}
+		default:
+		{
+
+		}
+		}
+		return false;
+	}
+}
+
 void DiscordUser::StartEncounter(Pokemon_Data mon)
 {
-	if (activeEncounter)
+	if (currentEvent)
 	{
 		return;
 	}
 
-	activeEncounter = new Encounter();
-	activeEncounter->encounteredMon = mon;
+	currentEvent = new Encounter();
+	((Encounter*)currentEvent)->encounteredMon = mon;
 
-	activeEncounter->Begin();
+	currentEvent->Begin();
 }
 
 Pokemon_Data* DiscordUser::CatchEncounter()
 {
-	if (activeEncounter)
+	if (currentEvent && currentEvent->IsType(EventType::Encounter))
 	{
-		activeEncounter->Catch(this);
-		delete activeEncounter;
-		activeEncounter = nullptr;
+		((Encounter*)currentEvent)->Catch(this);
+		delete currentEvent;
+		currentEvent = nullptr;
 
 		return &party[party.size() - 1];
 	}
@@ -109,13 +151,23 @@ Pokemon_Data* DiscordUser::CatchEncounter()
 	return nullptr;
 }
 
+void DiscordUser::RunEncounter()
+{
+	if (currentEvent && currentEvent->IsType(EventType::Encounter))
+	{
+		((Encounter*)currentEvent)->Run(this);
+		delete currentEvent;
+		currentEvent = nullptr;
+	}
+}
+
 void DiscordUser::EndEncounter()
 {
-	if (activeEncounter)
+	if (currentEvent)
 	{
-		activeEncounter->End();
-		delete activeEncounter;
-		activeEncounter = nullptr;
+		currentEvent->End();
+		delete currentEvent;
+		currentEvent = nullptr;
 	}
 }
 

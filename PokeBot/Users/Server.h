@@ -15,7 +15,7 @@ public:
 	DiscordServer(int64_t In_ID, Pokedex dex);
 
 	bool IsUserRegistered(int64_t In_ID);
-	void RegisterUser(int64_t In_ID);
+	DiscordUser* RegisterUser(int64_t In_ID);
 
 	DiscordUser* GetUser(int64_t ID);
 };

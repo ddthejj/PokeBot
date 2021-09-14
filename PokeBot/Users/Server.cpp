@@ -96,9 +96,10 @@ bool DiscordServer::IsUserRegistered(int64_t In_ID)
 	return users.count(In_ID) != 0;
 }
 
-void DiscordServer::RegisterUser(int64_t In_ID)
+DiscordUser* DiscordServer::RegisterUser(int64_t In_ID)
 {
-	users.insert(std::make_pair(In_ID, DiscordUser()));
+	DiscordUser newUser = DiscordUser();
+	users.insert(std::make_pair(In_ID, newUser));
 
 	char buffer[256];
 	_i64toa(id, buffer, 10);
@@ -110,6 +111,8 @@ void DiscordServer::RegisterUser(int64_t In_ID)
 	serverFilePath += buffer;
 
 	CreateFile(serverFilePath.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, LPSECURITY_ATTRIBUTES(), CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
+
+	return &newUser;
 }
 
 DiscordUser* DiscordServer::GetUser(int64_t ID)

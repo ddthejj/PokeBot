@@ -16,9 +16,15 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 {
 	if (message.startsWith("-pkb "))
 	{
+		DiscordUser* author;
+
 		if (!joinedServers[message.serverID.number()].IsUserRegistered(message.author.ID.number())) // check if user is not registered
 		{
-			joinedServers[message.serverID.number()].RegisterUser(message.author.ID.number());
+			author = joinedServers[message.serverID.number()].RegisterUser(message.author.ID.number());
+		}
+		else
+		{
+			author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
 		}
 
 		if (message.content == ("-pkb generate"))
@@ -37,9 +43,17 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 		{
 			pkbCatch(message);
 		}
+		else if (message.startsWith("-pkb run"))
+		{
+			pkbRun(message);
+		}
 		else if (message.startsWith("-pkb party"))
 		{
 			pkbParty(message);
+		}
+		else if (message.startsWith("-pkb release"))
+		{
+			pkbRelease(message);
 		}
 		else
 		{
@@ -241,6 +255,21 @@ void PokeBotClient::pkbCatch(SleepyDiscord::Message message)
 	}
 }
 
+void PokeBotClient::pkbRun(SleepyDiscord::Message message)
+{
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+
+	if (author->IsInEncounter())
+	{
+		author->RunEncounter();
+		sendMessage(message.channelID, std::string("You escaped, ") + message.author.username + "!");
+	}
+	else
+	{
+		sendMessage(message.channelID, std::string("What are you trying to run from, ") + message.author.username + "?");
+	}
+}
+
 void PokeBotClient::pkbParty(SleepyDiscord::Message message)
 {
 	std::vector<Pokemon_Data> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
@@ -259,4 +288,9 @@ void PokeBotClient::pkbParty(SleepyDiscord::Message message)
 	}
 
 	sendMessage(message.channelID, std::string("Trainer ") + message.author.username + " has the Pokemon:\n" + partyStr);
+}
+
+void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
+{
+
 }
