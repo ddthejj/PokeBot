@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Pokemon/PokemonDatabase.h"
+
 #include <vector>
 #include <string>
 
@@ -28,17 +30,24 @@ public:
 
 	void Save();
 
-	bool TryCreateEvent(EventType type);
+	bool TryCreateEvent(EventType type, std::string& out_error);
 
-	bool IsInEncounter() { return currentEvent != nullptr; }
+	bool IsInEncounter();
 	void StartEncounter(Pokemon_Data mon);
 	Pokemon_Data* CatchEncounter();
 	void RunEncounter();
 	void EndEncounter();
 
+	bool IsReleasingPokemon();
+	void StartRelease();
+	void SelectRelease(int index);
+	void CancelRelease();
+	std::string ConfirmRelease();
+
 	const std::vector<Pokemon_Data> Party() { return party; }
 
 	void AddPokemon(Pokemon_Data mon);
+	void ReleasePokemon(int index);
 
 private:
 

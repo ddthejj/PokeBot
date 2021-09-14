@@ -1,4 +1,5 @@
 #include "PokeBotClient.h"
+#include "../Event/Event.h"
 
 #include <time.h>
 #include <random>
@@ -182,6 +183,12 @@ void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 {
 	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
 
+	std::string error;
+	if (!author->TryCreateEvent(EventType::Encounter, error))
+	{
+		sendMessage(message.channelID, std::string("You are currently ") + error + ", " + message.author.username);
+		return;
+	}
 
 	if (message.length() > std::string("-pkb encounter").length())
 	{
@@ -292,5 +299,113 @@ void PokeBotClient::pkbParty(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 {
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
 
+	if (message.length() == std::string("-pkb release").length())
+	{
+		std::string error;
+		if (!author->TryCreateEvent(EventType::Encounter, error))
+		{
+			sendMessage(message.channelID, std::string("You are currently ") + error + ", " + message.author.username);
+			return;
+		}
+
+		if (!author->IsReleasingPokemon())
+		{
+			author->StartRelease();
+
+			std::string partyStr;
+
+			std::vector<Pokemon_Data> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+			for (int i = 0; i < party.size(); i++)
+			{
+				char buffer[8];
+				itoa(i + 1, buffer, 10);
+
+				partyStr += buffer;
+				partyStr += ": ";
+
+				Pokemon_Data mon = party[i];
+
+				partyStr += mon.Name;
+
+				if (i < party.size() - 1)
+				{
+					partyStr += +"\n";
+				}
+			}
+
+
+			sendMessage(message.channelID, std::string("Select a pokemon to release, ") + message.author.username + '\n' + partyStr);
+		}
+		else
+		{
+			sendMessage(message.channelID, std::string("You're already trying to release a Pokemon, ") + message.author.username);
+		}
+	}
+	else
+	{
+		const char* buffer = message.content.c_str();
+		const char* params = &(buffer[std::string("pkb release").length() + 1]);
+
+		// remove white space before parameters
+		while (*params == ' ')
+		{
+			params++;
+		}
+		std::string paramsStr(params);
+
+		if (paramsStr == "cancel")
+		{
+			if (author->IsReleasingPokemon())
+			{
+				author->CancelRelease();
+				sendMessage(message.channelID, std::string("Canceled release, ") + message.author.username);
+			}
+			else
+			{
+				sendMessage(message.channelID, std::string("What are you trying to cancel, ") + message.author.username + "?");
+			}
+		}
+		else if (paramsStr == "yes")
+		{
+			if (author->IsReleasingPokemon())
+			{
+				std::string name = author->ConfirmRelease();
+				sendMessage(message.channelID, std::string("Released pokemon ") + name + " from your party, " + message.author.username);
+			}
+			else
+			{
+				sendMessage(message.channelID, std::string("What are you trying to say yes to, ") + message.author.username + "?");
+			}
+		}
+		else if (paramsStr == "no")
+		{
+			if (author->IsReleasingPokemon())
+			{
+				author->CancelRelease();
+				sendMessage(message.channelID, std::string("Canceled release, ") + message.author.username);
+			}
+			else
+			{
+				sendMessage(message.channelID, std::string("What are you trying to say no to, ") + message.author.username + "?");
+			}
+		}
+		else
+		{
+			std::string::const_iterator it = paramsStr.begin();
+
+			int releaseNum = atoi(params);
+
+			if (releaseNum > 0 && releaseNum <= joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party().size())
+			{
+				author->SelectRelease(releaseNum - 1);
+				sendMessage(message.channelID, std::string("Release pokemon \"") + author->Party()[releaseNum - 1].Name + "\"?");
+			}
+			else
+			{
+				sendMessage(message.channelID, std::string("Unrecognized command \"") + params + "\"");
+			}
+		}
+	}
 }

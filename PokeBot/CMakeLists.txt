@@ -5,11 +5,11 @@ add_executable(PokeBot Source.cpp
 SleepyHandler/PokeBotClient.h SleepyHandler/PokeBotClient.cpp
 Pokemon/PokemonDatabase.h Pokemon/PokemonDatabase.cpp
 Map/Generator.h Map/Generator.cpp 
-"Users/Server.h" "Users/Server.cpp" 
-"Users/User.cpp" "Users/User.h"
-"Event/Event.h" "Event/Event.cpp"
+Users/Server.h Users/Server.cpp
+Users/User.cpp Users/User.h
+Event/Event.h Event/Event.cpp
 Event/Encounter.h Event/Encounter.cpp 
- "Event/Release.h" Event/Release.cpp)
+ Event/Release.h Event/Release.cpp)
 
 
 add_subdirectory(deps/sleepy-discord)

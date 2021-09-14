@@ -1,6 +1,7 @@
 #include "User.h"
 
 #include "../Event/Encounter.h"
+#include "../Event/Release.h"
 #include "../Users/Server.h"
 
 #include <Windows.h>
@@ -82,7 +83,7 @@ void DiscordUser::Save()
 	CloseHandle(hfile);
 }
 
-bool DiscordUser::TryCreateEvent(EventType type)
+bool DiscordUser::TryCreateEvent(EventType type, std::string& out_error)
 {
 	if (!currentEvent) // user is not doing anything
 	{
@@ -90,11 +91,11 @@ bool DiscordUser::TryCreateEvent(EventType type)
 		{
 		case EventType::Encounter:
 		{
-
+			break;
 		}
 		case EventType::Release:
 		{
-
+			break;
 		}
 		default:
 		{
@@ -109,11 +110,13 @@ bool DiscordUser::TryCreateEvent(EventType type)
 		{
 		case EventType::Encounter:
 		{
-
+			out_error = "in an encounter";
+			break;
 		}
 		case EventType::Release:
 		{
-
+			out_error = "releasing a pokemon";
+			break;
 		}
 		default:
 		{
@@ -122,6 +125,11 @@ bool DiscordUser::TryCreateEvent(EventType type)
 		}
 		return false;
 	}
+}
+
+bool DiscordUser::IsInEncounter()
+{
+	return (currentEvent && currentEvent->IsType(EventType::Encounter) && !currentEvent->IsOver());
 }
 
 void DiscordUser::StartEncounter(Pokemon_Data mon)
@@ -163,7 +171,7 @@ void DiscordUser::RunEncounter()
 
 void DiscordUser::EndEncounter()
 {
-	if (currentEvent)
+	if (currentEvent && currentEvent->IsType(EventType::Encounter))
 	{
 		currentEvent->End();
 		delete currentEvent;
@@ -171,8 +179,73 @@ void DiscordUser::EndEncounter()
 	}
 }
 
+bool DiscordUser::IsReleasingPokemon()
+{
+	return (currentEvent && currentEvent->IsType(EventType::Release) && !currentEvent->IsOver());
+}
+
+void DiscordUser::StartRelease()
+{
+	if (currentEvent)
+	{
+		return;
+	}
+
+	currentEvent = new ReleaseEvent();
+
+	currentEvent->Begin();
+}
+
+void DiscordUser::SelectRelease(int index)
+{
+	if (currentEvent && currentEvent->IsType(EventType::Release))
+	{
+		((ReleaseEvent*)currentEvent)->SelectMon(index);
+	}
+}
+
+void DiscordUser::CancelRelease()
+{
+	if (currentEvent && currentEvent->IsType(EventType::Release))
+	{
+		((ReleaseEvent*)currentEvent)->Cancel();
+		delete currentEvent;
+		currentEvent = nullptr;
+	}
+}
+
+std::string DiscordUser::ConfirmRelease()
+{
+	if (currentEvent && currentEvent->IsType(EventType::Release))
+	{
+		std::string releasedName = party[((ReleaseEvent*)currentEvent)->Index()].Name;
+
+		((ReleaseEvent*)currentEvent)->Confirm(this);
+		delete currentEvent;
+		currentEvent = nullptr;
+
+		return releasedName;
+	}
+
+	return std::string();
+}
+
 void DiscordUser::AddPokemon(Pokemon_Data mon)
 {
 	party.push_back(mon);
+	Save();
+}
+
+void DiscordUser::ReleasePokemon(int index)
+{
+	auto it = party.begin();
+
+	for (int i = 0; i < index; i++)
+	{
+		it++;
+	}
+
+	party.erase(it);
+
 	Save();
 }
