@@ -127,6 +127,18 @@ bool DiscordUser::TryCreateEvent(EventType type, std::string& out_error)
 	}
 }
 
+EventType DiscordUser::GetEventType()
+{
+	if (currentEvent)
+	{
+		return currentEvent->Type();
+	}
+	else
+	{
+		return EventType::None;
+	}
+}
+
 bool DiscordUser::IsInEncounter()
 {
 	return (currentEvent && currentEvent->IsType(EventType::Encounter) && !currentEvent->IsOver());
@@ -228,6 +240,14 @@ std::string DiscordUser::ConfirmRelease()
 	}
 
 	return std::string();
+}
+
+bool DiscordUser::IsConfirmingRelease()
+{
+	if (currentEvent && currentEvent->IsType(EventType::Release))
+	{
+		return ((ReleaseEvent*)currentEvent)->IsConfirming();
+	}
 }
 
 void DiscordUser::AddPokemon(Pokemon_Data mon)

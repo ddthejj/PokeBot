@@ -6,7 +6,7 @@ class DiscordUser;
 
 class ReleaseEvent : public Event
 {
-	bool IsConfirming = false;
+	bool isConfirming = false;
 	int index = 0;
 
 public:
@@ -19,6 +19,7 @@ public:
 	void SelectMon(int In_Index);
 	void Cancel();
 	void Confirm(DiscordUser* user);
+	bool IsConfirming() { return isConfirming; }
 
 	int Index() { return index; }
 };

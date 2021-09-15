@@ -31,7 +31,9 @@ public:
 	void Save();
 
 	bool TryCreateEvent(EventType type, std::string& out_error);
-
+	bool IsInEvent() { return currentEvent; }
+	EventType GetEventType();
+	
 	bool IsInEncounter();
 	void StartEncounter(Pokemon_Data mon);
 	Pokemon_Data* CatchEncounter();
@@ -43,6 +45,7 @@ public:
 	void SelectRelease(int index);
 	void CancelRelease();
 	std::string ConfirmRelease();
+	bool IsConfirmingRelease();
 
 	const std::vector<Pokemon_Data> Party() { return party; }
 

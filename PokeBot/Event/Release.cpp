@@ -14,7 +14,7 @@ void ReleaseEvent::End()
 void ReleaseEvent::SelectMon(int In_Index)
 {
 	index = In_Index;
-	IsConfirming = true;
+	isConfirming = true;
 }
 
 void ReleaseEvent::Cancel()

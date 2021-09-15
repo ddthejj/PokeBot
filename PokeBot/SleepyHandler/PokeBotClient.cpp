@@ -56,6 +56,18 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 		{
 			pkbRelease(message);
 		}
+		else if (message.startsWith("-pkb cancel"))
+		{
+			pkbCancel(message);
+		}
+		else if (message.startsWith("-pkb yes"))
+		{
+			pkbYes(message);
+		}
+		else if (message.startsWith("-pkb no"))
+		{
+			pkbNo(message);
+		}
 		else
 		{
 			const char* command;
@@ -371,8 +383,15 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 		{
 			if (author->IsReleasingPokemon())
 			{
-				std::string name = author->ConfirmRelease();
-				sendMessage(message.channelID, std::string("Released pokemon ") + name + " from your party, " + message.author.username);
+				if (author->IsConfirmingRelease())
+				{
+					std::string name = author->ConfirmRelease();
+					sendMessage(message.channelID, std::string("Released Pokemon ") + name + " from your party, " + message.author.username);
+				}
+				else
+				{
+					sendMessage(message.channelID, std::string("Please select a Pokemon to release or cancel, ") + message.author.username);
+				}
 			}
 			else
 			{
@@ -383,8 +402,15 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 		{
 			if (author->IsReleasingPokemon())
 			{
-				author->CancelRelease();
-				sendMessage(message.channelID, std::string("Canceled release, ") + message.author.username);
+				if (author->IsConfirmingRelease())
+				{
+					author->CancelRelease();
+					sendMessage(message.channelID, std::string("Canceled release, ") + message.author.username);
+				}
+				else
+				{
+					sendMessage(message.channelID, std::string("Please select a Pokemon to release or cancel, ") + message.author.username);
+				}
 			}
 			else
 			{
@@ -408,4 +434,99 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 			}
 		}
 	}
+}
+
+void PokeBotClient::pkbCancel(SleepyDiscord::Message message)
+{
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+
+	if (author->IsInEvent())
+	{
+		switch (author->GetEventType())
+		{
+		case EventType::Encounter:
+		{
+			message.content = "-pkb run";
+			pkbRun(message);
+			return;
+			break;
+		}
+		case EventType::Release:
+		{
+			message.content = "-pkb release cancel";
+			pkbRelease(message);
+			return;
+			break;
+		}
+		default:
+		{
+
+			break;
+		}
+		}
+	}
+
+	sendMessage(message.channelID, std::string("What are you trying to cancel, ") + message.author.username + "?");
+}
+
+void PokeBotClient::pkbYes(SleepyDiscord::Message message)
+{
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+
+	if (author->IsInEvent())
+	{
+		switch (author->GetEventType())
+		{
+		case EventType::Encounter:
+		{
+
+			break;
+		}
+		case EventType::Release:
+		{
+			message.content = "-pkb release yes";
+			pkbRelease(message);
+			return;
+			break;
+		}
+		default:
+		{
+
+			break;
+		}
+		}
+	}
+
+	sendMessage(message.channelID, std::string("What are you trying to say yes to, ") + message.author.username + "?");
+}
+
+void PokeBotClient::pkbNo(SleepyDiscord::Message message)
+{
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+
+	if (author->IsInEvent())
+	{
+		switch (author->GetEventType())
+		{
+		case EventType::Encounter:
+		{
+
+			break;
+		}
+		case EventType::Release:
+		{
+			message.content = "-pkb release no";
+			pkbRelease(message);
+			return;
+			break;
+		}
+		default:
+		{
+
+			break;
+		}
+		}
+	}
+
+	sendMessage(message.channelID, std::string("What are you trying to say no to, ") + message.author.username + "?");
 }
