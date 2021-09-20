@@ -1,9 +1,8 @@
 #pragma once
 #include "Event.h"
 
-#include "../Pokemon/PokemonDatabase.h"
-
 class DiscordUser;
+class Pokemon_Data;
 
 class Encounter : public Event
 {
@@ -11,7 +10,7 @@ public:
 
 	Encounter();
 
-	Pokemon_Data encounteredMon;
+	Pokemon_Data* encounteredMon;
 
 	virtual void Begin() override;
 	virtual void End() override;

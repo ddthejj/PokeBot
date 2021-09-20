@@ -12,7 +12,7 @@ class DiscordServer
 
 public:
 	DiscordServer() = default;
-	DiscordServer(int64_t In_ID, Pokedex dex);
+	DiscordServer(int64_t In_ID, Pokedex* dex);
 
 	bool IsUserRegistered(int64_t In_ID);
 	DiscordUser* RegisterUser(int64_t In_ID);

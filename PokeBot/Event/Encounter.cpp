@@ -2,6 +2,7 @@
 #include "Encounter.h"
 
 #include "../Users/User.h"
+#include "../Pokemon/PokemonDatabase.h"
 
 Encounter::Encounter()
 {

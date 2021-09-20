@@ -7,7 +7,8 @@ Pokemon_Data::Pokemon_Data(
 	std::string In_Name, std::string In_FormName,
 	Type In_Type1, Type In_Type2,
 	int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed,
-	int In_Gen, bool In_Legendary, int In_Stage)
+	int In_Gen, bool In_Legendary, int In_Stage,
+	int In_Ability1, int In_Ability2, int In_HiddenAbility)
 {
 	DexNum = In_DexNum;
 	Name = In_Name;
@@ -22,6 +23,9 @@ Pokemon_Data::Pokemon_Data(
 	Gen = In_Gen;
 	Legedary = In_Legendary;
 	Stage = In_Stage;
+	Ability1 = In_Ability1;
+	Ability2 = In_Ability2;
+	HiddenAbility = In_HiddenAbility;
 }
 
 Type Pokemon_Data::StringToType(std::string In_Type)
@@ -218,7 +222,7 @@ Pokedex::Pokedex()
 
 
 	// read every line from the file
-	std::string words[15];
+	std::string words[32];
 
 	char buffer[2048];
 	// skip header
@@ -248,26 +252,74 @@ Pokedex::Pokedex()
 			wordsAt++;
 		}
 
-		Pokemon_Data newMon = Pokemon_Data(
-			atoi(words[0].c_str()),
-			words[1], words[2],
-			Pokemon_Data::StringToType(words[3]), Pokemon_Data::StringToType(words[4]),
-			atoi(words[6].c_str()), atoi(words[7].c_str()), atoi(words[8].c_str()), atoi(words[9].c_str()), atoi(words[10].c_str()), atoi(words[11].c_str()),
-			atoi(words[12].c_str()), words[13] == std::string("TRUE"), atoi(words[14].c_str()));
+		std::string abilities[3] = { words[2], words[3], words[4] };
+		int abilityNums[3];
 
-		if (pokedex.count(newMon.DexNum))
+		for (int i = 0; i < 3; i++)
 		{
-			pokedex[newMon.DexNum].push_back(newMon);
+			if (abilities[i] != "")
+			{
+				if (abilityDex.count(abilities[i]))
+				{
+					abilityNums[i] = abilityDex[abilities[i]];
+				}
+				else
+				{
+					abilityDex.insert(std::make_pair(abilities[i], abilityDex.size()));
+					abilityNums[i] = abilityDex[abilities[i]];
+				}
+			}
+			else
+			{
+				abilityNums[i] = -1;
+			}
+		}
+
+		//name,pokedex_number,abilities,,,typing,,hp,attack,defense,special_attack,special_defense,speed,height,weight,genus,gen_introduced,female_rate,genderless,baby_pokemon,legendary,mythical,is_default,forms_switchable,base_experience,capture_rate,egg_groups,,egg_cycles,base_happiness,can_evolve,evolves_from,primary_color,shape
+
+		/*
+		int In_DexNum,
+		std::string In_Name, std::string In_FormName,
+		Type In_Type1, Type In_Type2,
+		int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed,
+		int In_Gen, bool In_Legendary, int In_Stage,
+		int In_Ability1, int In_Ability2, int In_HiddenAbility)
+		*/
+		Pokemon_Data* newMon = new Pokemon_Data(
+			atoi(words[1].c_str()),
+			words[0], std::string(""),
+			Pokemon_Data::StringToType(words[5]), Pokemon_Data::StringToType(words[6]),
+			atoi(words[7].c_str()), atoi(words[8].c_str()), atoi(words[9].c_str()), atoi(words[10].c_str()), atoi(words[11].c_str()), atoi(words[12].c_str()),
+			atoi(words[16].c_str()), words[20] == std::string("TRUE"), -1,//atoi(words[14].c_str()),
+			abilityNums[0], abilityNums[1], abilityNums[2]
+		);
+
+		if (pokedex.count(newMon->DexNum))
+		{
+			pokedex[newMon->DexNum].push_back(newMon);
 		}
 		else
 		{
-			std::vector<Pokemon_Data> pokemonList;
+			std::vector<Pokemon_Data*> pokemonList;
 			pokemonList.push_back(newMon);
 
-			pokedex.insert(std::pair<int, std::vector<Pokemon_Data>>(atoi(words[0].c_str()), pokemonList));
+			pokedex.insert(std::pair<int, std::vector<Pokemon_Data*>>(atoi(words[0].c_str()), pokemonList));
 		}
 	}
 
 	file.close();
 	return;
+}
+
+Pokedex::~Pokedex()
+{
+	for (auto it = pokedex.begin(); it != pokedex.end(); ++it)
+	{
+		std::vector<Pokemon_Data*> dexEntry = it->second;
+
+		for (int i = 0; i < dexEntry.size(); i++)
+		{
+			delete dexEntry[i];
+		}
+	}
 }

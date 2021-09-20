@@ -1,22 +1,23 @@
 #pragma once
 #include "sleepy_discord/sleepy_discord.h"
-#include "../Pokemon/PokemonDatabase.h"
-#include "../Map/Generator.h"
-#include "../Users/Server.h"
 
 #include <vector>
 
+class Pokedex;
+class Generator;
+class DiscordServer;
 
 class PokeBotClient : public SleepyDiscord::DiscordClient
 {
-	Pokedex dex;
-	Generator generator;
+	Pokedex* dex;
+	Generator* generator;
 
 	std::map<int64_t, DiscordServer> joinedServers;
 
 public:
 
 	PokeBotClient(const std::string token, const char numOfThreads = SleepyDiscord::DEFAULT_THREADS);
+	~PokeBotClient();
 
 	using SleepyDiscord::DiscordClient::DiscordClient;
 

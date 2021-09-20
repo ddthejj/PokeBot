@@ -3,6 +3,7 @@
 #include "../Event/Encounter.h"
 #include "../Event/Release.h"
 #include "../Users/Server.h"
+#include "../Pokemon/PokemonDatabase.h"
 
 #include <Windows.h>
 
@@ -15,7 +16,7 @@ DiscordUser::~DiscordUser()
 	}
 }
 
-void DiscordUser::ParseFile(std::vector<std::string> lines, Pokedex dex)
+void DiscordUser::ParseFile(std::vector<std::string> lines, Pokedex* dex)
 {
 	for (int i = 0; i < lines.size(); i++)
 	{
@@ -23,7 +24,7 @@ void DiscordUser::ParseFile(std::vector<std::string> lines, Pokedex dex)
 
 		int pokemonID = atoi(words[0].c_str());
 
-		party.push_back(dex.pokedex[pokemonID][0]);
+		party.push_back(dex->pokedex[pokemonID][0]);
 	}
 }
 
@@ -71,9 +72,9 @@ void DiscordUser::Save()
 
 	for (int i = 0; i < party.size(); i++)
 	{
-		Pokemon_Data mon = party[i];
+		Pokemon_Data* mon = party[i];
 		char buffer[8];
-		itoa(mon.DexNum, buffer, 10);
+		itoa(mon->DexNum, buffer, 10);
 		std::string line = std::string(buffer) + '\n';
 
 		WriteFile(hfile, line.c_str(), line.size(), &bytesWritten, NULL);
@@ -144,7 +145,7 @@ bool DiscordUser::IsInEncounter()
 	return (currentEvent && currentEvent->IsType(EventType::Encounter) && !currentEvent->IsOver());
 }
 
-void DiscordUser::StartEncounter(Pokemon_Data mon)
+void DiscordUser::StartEncounter(Pokemon_Data* mon)
 {
 	if (currentEvent)
 	{
@@ -165,7 +166,7 @@ Pokemon_Data* DiscordUser::CatchEncounter()
 		delete currentEvent;
 		currentEvent = nullptr;
 
-		return &party[party.size() - 1];
+		return party[party.size() - 1];
 	}
 
 	return nullptr;
@@ -230,7 +231,7 @@ std::string DiscordUser::ConfirmRelease()
 {
 	if (currentEvent && currentEvent->IsType(EventType::Release))
 	{
-		std::string releasedName = party[((ReleaseEvent*)currentEvent)->Index()].Name;
+		std::string releasedName = party[((ReleaseEvent*)currentEvent)->Index()]->Name;
 
 		((ReleaseEvent*)currentEvent)->Confirm(this);
 		delete currentEvent;
@@ -250,7 +251,7 @@ bool DiscordUser::IsConfirmingRelease()
 	}
 }
 
-void DiscordUser::AddPokemon(Pokemon_Data mon)
+void DiscordUser::AddPokemon(Pokemon_Data* mon)
 {
 	party.push_back(mon);
 	Save();

@@ -34,11 +34,12 @@ public:
 
 	Pokemon_Data() {}
 	Pokemon_Data(
-		int In_DexNum, 
-		std::string In_Name, std::string In_FormName, 
-		Type In_Type1, Type In_Type2, 
-		int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed, 
-		int In_Gen, bool In_Legendary, int In_Stage);
+		int In_DexNum,
+		std::string In_Name, std::string In_FormName,
+		Type In_Type1, Type In_Type2,
+		int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed,
+		int In_Gen, bool In_Legendary, int In_Stage,
+		int In_Ability1, int In_Ability2, int In_HiddenAbility);
 
 	// #,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
 	int DexNum = -1;
@@ -50,6 +51,7 @@ public:
 	int Gen = 0;
 	bool Legedary = false;
 	int Stage = -1;
+	int Ability1 = -1, Ability2 = -1, HiddenAbility = -1;
 
 	static Type StringToType(std::string In_Type);
 	static std::string TypeToString(Type In_Type);
@@ -62,7 +64,8 @@ class Pokedex
 public:
 
 	Pokedex();
+	~Pokedex();
 
-
-	std::map<int, std::vector<Pokemon_Data>> pokedex;
+	std::map<int, std::vector<Pokemon_Data*>> pokedex;
+	std::map <std::string, int> abilityDex;
 };

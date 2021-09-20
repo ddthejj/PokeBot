@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../Pokemon/PokemonDatabase.h"
-
 #include <vector>
 #include <string>
 
@@ -15,7 +13,7 @@ class DiscordUser
 {
 	int64_t id = -1;
 	int64_t serverID = -1;
-	std::vector<Pokemon_Data> party;
+	std::vector<Pokemon_Data*> party;
 
 	Event* currentEvent = nullptr;
 
@@ -25,7 +23,7 @@ public:
 	DiscordUser(int64_t In_ID, int64_t In_ServerID) { id = In_ID; serverID = In_ServerID; }
 	~DiscordUser();
 
-	void ParseFile(std::vector<std::string> lines, Pokedex pokedex);
+	void ParseFile(std::vector<std::string> lines, Pokedex* pokedex);
 	std::vector<std::string> ParseLine(std::string line, char delim);
 
 	void Save();
@@ -35,7 +33,7 @@ public:
 	EventType GetEventType();
 	
 	bool IsInEncounter();
-	void StartEncounter(Pokemon_Data mon);
+	void StartEncounter(Pokemon_Data* mon);
 	Pokemon_Data* CatchEncounter();
 	void RunEncounter();
 	void EndEncounter();
@@ -47,9 +45,9 @@ public:
 	std::string ConfirmRelease();
 	bool IsConfirmingRelease();
 
-	const std::vector<Pokemon_Data> Party() { return party; }
+	const std::vector<Pokemon_Data*> Party() { return party; }
 
-	void AddPokemon(Pokemon_Data mon);
+	void AddPokemon(Pokemon_Data* mon);
 	void ReleasePokemon(int index);
 
 private:

@@ -10,7 +10,7 @@
 
 #include <Windows.h>
 
-DiscordServer::DiscordServer(int64_t In_ID, Pokedex dex)
+DiscordServer::DiscordServer(int64_t In_ID, Pokedex* dex)
 {
 	id = In_ID;
 
