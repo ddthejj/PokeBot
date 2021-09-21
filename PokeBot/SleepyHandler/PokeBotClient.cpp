@@ -8,6 +8,7 @@
 #include <time.h>
 #include <random>
 #include <string.h>
+#include <cstdio>
 
 typedef std::mt19937 rng_type;
 rng_type rng;
@@ -131,6 +132,25 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 				_itoa_s(monData->Base_SpDefense, spd, 10);
 				char sp[32];
 				_itoa_s(monData->Base_Speed, sp, 10);
+				char gen[32];
+				_itoa_s(monData->Gen, gen, 10);
+				char ht[32];
+				sprintf(ht, "%.2f", monData->Height / 10.f);
+				char wt[32];
+				sprintf(wt, "%.2f", monData->Weight / 10.f);
+				char fp[32];
+				sprintf(fp, "%.2f", (float)(monData->FemalePercentage * 100.f));
+				char mp[32];
+				sprintf(mp, "%.2f", (float)(100.f - (monData->FemalePercentage * 100.f)));
+				char xp[32];
+				_itoa_s(monData->BaseXP, xp, 10);
+				char cr[32];
+				_itoa_s(monData->CaptureRate, cr, 10);
+				char hap[32];
+				_itoa_s(monData->BaseHappiness, hap, 10);
+				char ec[32];
+				_itoa_s(monData->EggCycles, ec, 10);
+
 				char stage[32];
 				_itoa_s(monData->Stage, stage, 10);
 				std::string ability1;
@@ -153,23 +173,24 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 					}
 				}
 
-				std::string dataString =
-					std::string("#") + num + " " + monData->Name
-					+ "\n" + monData->TypeAsString()
-					+ "\n\nHP: " + hp
-					+ "\nAttack: " + att
-					+ "\nDefense: " + def
-					+ "\nSpecial Attack: " + spa
-					+ "\nSpecial Defense: " + spd
-					+ "\nSpeed: " + sp
-					+ "\n\nLegendary: " + (monData->Legedary ? "yes" : "no")
-					+ "\nStage: " + stage
-					+ "\n"
-					;
+				std::string dataString = std::string("#") + num + " " + monData->Name + ", The " + monData->Classification;
+
+				if (monData->FormName != "")
+				{
+					dataString += std::string("\nForm: ") + monData->FormName + ' ' + monData->Name;
+				}
+
+				dataString += std::string("\n") + monData->TypeAsString() + " Type";
+
+				if (monData->EvolvesFrom)
+				{
+					dataString += std::string("\n\nEvolves From: ") + monData->EvolvesFrom->Name;
+				}
+
 
 				if (monData->Ability1 != -1)
 				{
-					dataString += "\nAbility 1: " + ability1;
+					dataString += "\n\nAbility 1: " + ability1;
 				}
 				if (monData->Ability2 != -1)
 				{
@@ -180,7 +201,48 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 					dataString += "\nHidden Ability: " + ability3;
 				}
 
+				dataString
+					+= std::string("\n\nHP: ") + hp
+					+ "\nAttack: " + att
+					+ "\nDefense: " + def
+					+ "\nSpecial Attack: " + spa
+					+ "\nSpecial Defense: " + spd
+					+ "\nSpeed: " + sp
+					;
+
+				if (!monData->Genderless)
+				{
+					dataString += std::string("\n\nMale: ") + mp + "%, Female: " + fp + "%";
+				}
+				else
+				{
+					dataString += "\n\nGenderless";
+				}
+
+				dataString +=
+					std::string("\nGeneration: ") + gen
+					+ "\n\Baby: " + (monData->IsBaby ? "yes" : "no")
+					+ "\nLegendary: " + (monData->Legedary ? "yes" : "no")
+					+ "\nMythical: " + (monData->Mythical ? "yes" : "no")
+					+ "\n\nStage: " + stage
+					+ "\nHeight: " + ht + 'm'
+					+ "\nWeight: " + wt + "kg"
+					+ "\n\nBase EXP: " + xp
+					+ "\nCatch Rate: " + cr
+					+ "\nEgg Group: " + monData->EggGroupAsString()
+					+ "\nEgg Cycles: " + ec
+					+ "\nBase Happiness: " + hap
+					+ "\n\nColor: " + monData->ColorAsString()
+					+ "\nShape: " + monData->ShapeAsString()
+					;
+
 				sendMessage(message.channelID, dataString);
+
+
+				/*
+				bool In_CanEvolve,
+				*/
+
 
 				return;
 			}
