@@ -129,10 +129,11 @@ public:
 	bool IsBaby = false;
 	int BaseXP = -1, CaptureRate = 255;
 	EggGroup EggGroup1 = EggGroup::None, EggGroup2 = EggGroup::None;
-	int EggCycles;
-	int BaseHappiness;
-	bool CanEvolve; 
+	int EggCycles = 0;
+	int BaseHappiness = 0;
+	bool CanEvolve = false; 
 	Pokemon_Data* EvolvesFrom = nullptr;
+	std::vector<Pokemon_Data*> EvolvesTo;
 	PokemonColor Color = PokemonColor::None;
 	PokemonShape Shape = PokemonShape::None;
 
@@ -160,5 +161,5 @@ public:
 	~Pokedex();
 
 	std::map<int, std::vector<Pokemon_Data*>> pokedex;
-	std::map <std::string, int> abilityDex;
+	std::map<std::string, int> abilityDex;
 };

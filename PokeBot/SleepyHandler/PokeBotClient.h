@@ -25,6 +25,8 @@ public:
 
 	void onServer(SleepyDiscord::Server server) override;
 
+	void pkbHelp(SleepyDiscord::Message message);
+
 	void pkbData(SleepyDiscord::Message message);
 
 	void pkbGenerate(SleepyDiscord::Message message);

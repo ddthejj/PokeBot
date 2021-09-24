@@ -66,85 +66,86 @@ Pokemon_Data::Pokemon_Data(
 	BaseHappiness = In_BaseHappiness;
 	CanEvolve = In_CanEvolve;
 	EvolvesFrom = In_EvolvesFrom;
+	EvolvesTo = std::vector<Pokemon_Data*>();
 	Color = In_Color;
 	Shape = In_Shape;
 }
 
 Type Pokemon_Data::StringToType(std::string In_Type)
 {
-	if (0 == stricmp(In_Type.c_str(), " "))
+	if (0 == _stricmp(In_Type.c_str(), " "))
 	{
 		return Type::None;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Normal"))
+	else if (0 == _stricmp(In_Type.c_str(), "Normal"))
 	{
 		return Type::Normal;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Fire"))
+	else if (0 == _stricmp(In_Type.c_str(), "Fire"))
 	{
 		return Type::Fire;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Water"))
+	else if (0 == _stricmp(In_Type.c_str(), "Water"))
 	{
 		return Type::Water;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Grass"))
+	else if (0 == _stricmp(In_Type.c_str(), "Grass"))
 	{
 		return Type::Grass;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Electric"))
+	else if (0 == _stricmp(In_Type.c_str(), "Electric"))
 	{
 		return Type::Electric;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Ice"))
+	else if (0 == _stricmp(In_Type.c_str(), "Ice"))
 	{
 		return Type::Ice;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Fighting"))
+	else if (0 == _stricmp(In_Type.c_str(), "Fighting"))
 	{
 		return Type::Fighting;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Poison"))
+	else if (0 == _stricmp(In_Type.c_str(), "Poison"))
 	{
 		return Type::Poison;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Ground"))
+	else if (0 == _stricmp(In_Type.c_str(), "Ground"))
 	{
 		return Type::Ground;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Flying"))
+	else if (0 == _stricmp(In_Type.c_str(), "Flying"))
 	{
 		return Type::Flying;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Psychic"))
+	else if (0 == _stricmp(In_Type.c_str(), "Psychic"))
 	{
 		return Type::Psychic;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Bug"))
+	else if (0 == _stricmp(In_Type.c_str(), "Bug"))
 	{
 		return Type::Bug;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Rock"))
+	else if (0 == _stricmp(In_Type.c_str(), "Rock"))
 	{
 		return Type::Rock;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Ghost"))
+	else if (0 == _stricmp(In_Type.c_str(), "Ghost"))
 	{
 		return Type::Ghost;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Dark"))
+	else if (0 == _stricmp(In_Type.c_str(), "Dark"))
 	{
 		return Type::Dark;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Dragon"))
+	else if (0 == _stricmp(In_Type.c_str(), "Dragon"))
 	{
 		return Type::Dragon;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Steel"))
+	else if (0 == _stricmp(In_Type.c_str(), "Steel"))
 	{
 		return Type::Steel;
 	}
-	else if (0 == stricmp(In_Type.c_str(), "Fairy"))
+	else if (0 == _stricmp(In_Type.c_str(), "Fairy"))
 	{
 		return Type::Fairy;
 	}
@@ -241,67 +242,67 @@ std::string Pokemon_Data::TypeToString(Type In_Type)
 
 EggGroup Pokemon_Data::StringToEggGroup(std::string In_EggGroup)
 {
-	if (0 == stricmp(In_EggGroup.c_str(), " "))
+	if (0 == _stricmp(In_EggGroup.c_str(), " "))
 	{
 		return EggGroup::None;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Undiscovered"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Undiscovered"))
 	{
 		return EggGroup::Undiscovered;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Monster"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Monster"))
 	{
 		return EggGroup::Monster;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Water1"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Water1"))
 	{
 		return EggGroup::Water1;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Bug"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Bug"))
 	{
 		return EggGroup::Bug;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Flying"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Flying"))
 	{
 		return EggGroup::Flying;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Field"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Field"))
 	{
 		return EggGroup::Field;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Fairy"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Fairy"))
 	{
 		return EggGroup::Fairy;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Grass"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Grass"))
 	{
 		return EggGroup::Grass;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Humanlike"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Humanlike"))
 	{
 		return EggGroup::Humanlike;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Water3"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Water3"))
 	{
 		return EggGroup::Water3;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Mineral"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Mineral"))
 	{
 		return EggGroup::Mineral;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Amorphous"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Amorphous"))
 	{
 		return EggGroup::Amorphous;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Water2"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Water2"))
 	{
 		return EggGroup::Water2;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Ditto"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Ditto"))
 	{
 		return EggGroup::Ditto;
 	}
-	else if (0 == stricmp(In_EggGroup.c_str(), "Dragon"))
+	else if (0 == _stricmp(In_EggGroup.c_str(), "Dragon"))
 	{
 		return EggGroup::Dragon;
 	}
@@ -386,47 +387,47 @@ std::string Pokemon_Data::EggGroupToString(EggGroup In_EggGroup)
 
 PokemonColor Pokemon_Data::StringToColor(std::string In_Color)
 {
-	if (0 == stricmp(In_Color.c_str(), " "))
+	if (0 == _stricmp(In_Color.c_str(), " "))
 	{
 		return PokemonColor::None;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Red"))
+	else if (0 == _stricmp(In_Color.c_str(), "Red"))
 	{
 		return PokemonColor::Red;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Blue"))
+	else if (0 == _stricmp(In_Color.c_str(), "Blue"))
 	{
 		return PokemonColor::Blue;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Yellow"))
+	else if (0 == _stricmp(In_Color.c_str(), "Yellow"))
 	{
 		return PokemonColor::Yellow;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Green"))
+	else if (0 == _stricmp(In_Color.c_str(), "Green"))
 	{
 		return PokemonColor::Green;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Black"))
+	else if (0 == _stricmp(In_Color.c_str(), "Black"))
 	{
 		return PokemonColor::Black;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Brown"))
+	else if (0 == _stricmp(In_Color.c_str(), "Brown"))
 	{
 		return PokemonColor::Brown;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Purple"))
+	else if (0 == _stricmp(In_Color.c_str(), "Purple"))
 	{
 		return PokemonColor::Purple;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Gray"))
+	else if (0 == _stricmp(In_Color.c_str(), "Gray"))
 	{
 		return PokemonColor::Gray;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "White"))
+	else if (0 == _stricmp(In_Color.c_str(), "White"))
 	{
 		return PokemonColor::White;
 	}
-	else if (0 == stricmp(In_Color.c_str(), "Pink"))
+	else if (0 == _stricmp(In_Color.c_str(), "Pink"))
 	{
 		return PokemonColor::Pink;
 	}
@@ -482,68 +483,72 @@ std::string Pokemon_Data::ColorToString(PokemonColor In_Color)
 	{
 		return std::string("Pink");
 	}
+	default:
+	{
+		return std::string("");
+	}
 	}
 }
 
 PokemonShape Pokemon_Data::StringToShape(std::string In_Shape)
 {
-	if (0 == stricmp(In_Shape.c_str(), " "))
+	if (0 == _stricmp(In_Shape.c_str(), " "))
 	{
 		return PokemonShape::None;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Armor"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Armor"))
 	{
 		return PokemonShape::Armor;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Arms"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Arms"))
 	{
 		return PokemonShape::Arms;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Ball"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Ball"))
 	{
 		return PokemonShape::Ball;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Blob"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Blob"))
 	{
 		return PokemonShape::Blob;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "BugWings"))
+	else if (0 == _stricmp(In_Shape.c_str(), "BugWings"))
 	{
 		return PokemonShape::BugWings;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Fish"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Fish"))
 	{
 		return PokemonShape::Fish;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Heads"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Heads"))
 	{
 		return PokemonShape::Heads;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Humanoid"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Humanoid"))
 	{
 		return PokemonShape::Humanoid;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Legs"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Legs"))
 	{
 		return PokemonShape::Legs;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Quadruped"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Quadruped"))
 	{
 		return PokemonShape::Quadruped;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Squiggle"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Squiggle"))
 	{
 		return PokemonShape::Squiggle;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Tentacles"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Tentacles"))
 	{
 		return PokemonShape::Tentacles;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Upright"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Upright"))
 	{
 		return PokemonShape::Upright;
 	}
-	else if (0 == stricmp(In_Shape.c_str(), "Wings"))
+	else if (0 == _stricmp(In_Shape.c_str(), "Wings"))
 	{
 		return PokemonShape::Wings;
 	}
@@ -726,6 +731,12 @@ Pokedex::Pokedex()
 			}
 		}
 
+		if (abilityNums[1] != -1 && abilityNums[2] == -1)
+		{
+			abilityNums[2] = abilityNums[1];
+			abilityNums[1] = -1;
+		}
+
 		int In_DexNum = atoi(words[(int)CSV_Sort::pokedex_number].c_str());
 		std::string In_Name = words[(int)CSV_Sort::name], In_FormName = words[(int)CSV_Sort::form_name], In_Classification = words[(int)CSV_Sort::genus];
 		bool In_IsDefaultForm = words[(int)CSV_Sort::is_default] == std::string("TRUE"), In_FormsSwitchable = words[(int)CSV_Sort::forms_switchable] == std::string("TRUE");
@@ -736,8 +747,8 @@ Pokedex::Pokedex()
 		bool In_Legendary = words[(int)CSV_Sort::legendary] == std::string("TRUE"), In_Mythical = words[(int)CSV_Sort::mythical] == std::string("TRUE");
 		int In_Stage = -1;
 		int In_Ability1 = abilityNums[0], In_Ability2 = abilityNums[1], In_HiddenAbility = abilityNums[2];
-		float In_Height = atof(words[(int)CSV_Sort::height].c_str()), In_Weight = atof(words[(int)CSV_Sort::weight].c_str());
-		float In_FemalePercentage = atof(words[(int)CSV_Sort::female_rate].c_str()); bool In_Genderless = words[(int)CSV_Sort::genderless] == std::string("TRUE");
+		float In_Height = (float)atof(words[(int)CSV_Sort::height].c_str()), In_Weight = (float)atof(words[(int)CSV_Sort::weight].c_str());
+		float In_FemalePercentage = (float)atof(words[(int)CSV_Sort::female_rate].c_str()); bool In_Genderless = words[(int)CSV_Sort::genderless] == std::string("TRUE");
 		bool In_IsBaby = words[(int)CSV_Sort::baby_pokemon] == std::string("TRUE");
 		int In_BaseXP = atoi(words[(int)CSV_Sort::base_experience].c_str()), In_CaptureRate = atoi(words[(int)CSV_Sort::capture_rate].c_str());
 		EggGroup In_EggGroup1 = Pokemon_Data::StringToEggGroup(words[(int)CSV_Sort::egg_groups]), In_EggGroup2 = Pokemon_Data::StringToEggGroup(words[(int)CSV_Sort::egg_groups2]);
@@ -825,13 +836,15 @@ Pokedex::Pokedex()
 				{
 					Pokemon_Data* prev_mon = pokedex[mon->DexNum - 1][i];
 
-					if (stricmp(prev_mon->Name.c_str(), EvolvesFrom.c_str()) == 0)
+					if (_stricmp(prev_mon->Name.c_str(), EvolvesFrom.c_str()) == 0)
 					{
 						mon->EvolvesFrom = prev_mon;
+						prev_mon->EvolvesTo.push_back(mon);
 					}
-					else if (0 == stricmp(prev_mon->FormName.c_str(), EvolvesFrom.c_str()))
+					else if (0 == _stricmp(prev_mon->FormName.c_str(), EvolvesFrom.c_str()))
 					{
 						mon->EvolvesFrom = prev_mon;
+						prev_mon->EvolvesTo.push_back(mon);
 					}
 				}
 			}
@@ -848,13 +861,15 @@ Pokedex::Pokedex()
 					{
 						Pokemon_Data* prev_mon = pokedexEntry[j];
 
-						if (0 == stricmp(prev_mon->Name.c_str(), EvolvesFrom.c_str()))
+						if (0 == _stricmp(prev_mon->Name.c_str(), EvolvesFrom.c_str()))
 						{
 							mon->EvolvesFrom = prev_mon;
+							prev_mon->EvolvesTo.push_back(mon);
 						}
-						else if (0 == stricmp(prev_mon->FormName.c_str(), EvolvesFrom.c_str()))
+						else if (0 == _stricmp(prev_mon->FormName.c_str(), EvolvesFrom.c_str()))
 						{
 							mon->EvolvesFrom = prev_mon;
+							prev_mon->EvolvesTo.push_back(mon);
 						}
 					}
 				}

@@ -1,6 +1,7 @@
 #include "PokeBotClient.h"
 
 #include "../Pokemon/PokemonDatabase.h"
+#include "../Pokemon/PokemonInstance.h"
 #include "../Map/Generator.h"
 #include "../Users/Server.h"
 #include "../Event/Event.h"
@@ -42,7 +43,11 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 			author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
 		}
 
-		if (message.content == ("-pkb generate"))
+		if (message.content == "-pkb help")
+		{
+			pkbHelp(message);
+		}
+		else if (message.content == ("-pkb generate"))
 		{
 			pkbGenerate(message);
 		}
@@ -99,6 +104,32 @@ void PokeBotClient::onServer(SleepyDiscord::Server server)
 	joinedServers.insert(std::pair<int64_t, DiscordServer>(serverID, joinedServer));
 }
 
+void PokeBotClient::pkbHelp(SleepyDiscord::Message message)
+{
+	sendMessage(message.channelID, 
+		std::string("PokeBot commands:\
+		\nData: -pkb data [pokemon name]\
+		\nView the data of the selected Pokemon\
+		\nEncounter: -pkb encounter [optional type]\
+		\nEncounter a random pokemon, of the type if specified\
+		\nCatch: -pkb catch\
+		\nCatch the Pokemon you're in an encoutner with\
+		\nRun: -pkb run\
+		\nRun from the Pokemon you're in an encounter with\
+		\nParty: -pkb party\
+		\nView your party\
+		\nRelease: -pkb release [optional number]\
+		\nShows your party with numbers next to them if you don't specify a number\
+		\nIf you do specify a number, prompts you to release that Pokemon\
+		\nCancel: -pkb cancel\
+		\nCancels the current action\
+		\nYes: -pkb yes\
+		\nAffirms the current action\
+		\nNo: -pkb no\
+		\nCancels the current action\
+		"));
+}
+
 void PokeBotClient::pkbData(SleepyDiscord::Message message)
 {
 	if (message.length() > std::string("-pkb data").length())
@@ -135,13 +166,13 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 				char gen[32];
 				_itoa_s(monData->Gen, gen, 10);
 				char ht[32];
-				sprintf(ht, "%.2f", monData->Height / 10.f);
+				sprintf_s(ht, "%.2f", monData->Height / 10.f);
 				char wt[32];
-				sprintf(wt, "%.2f", monData->Weight / 10.f);
+				sprintf_s(wt, "%.2f", monData->Weight / 10.f);
 				char fp[32];
-				sprintf(fp, "%.2f", (float)(monData->FemalePercentage * 100.f));
+				sprintf_s(fp, "%.2f", (float)(monData->FemalePercentage * (float)100.f));
 				char mp[32];
-				sprintf(mp, "%.2f", (float)(100.f - (monData->FemalePercentage * 100.f)));
+				sprintf_s(mp, "%.2f", (float)((float)100.f - (monData->FemalePercentage * (float)100.f)));
 				char xp[32];
 				_itoa_s(monData->BaseXP, xp, 10);
 				char cr[32];
@@ -184,7 +215,25 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 
 				if (monData->EvolvesFrom)
 				{
-					dataString += std::string("\n\nEvolves From: ") + monData->EvolvesFrom->Name;
+					dataString += std::string("\nEvolves From: ") + monData->EvolvesFrom->Name;
+				}
+				if (monData->EvolvesTo.size())
+				{
+					dataString += std::string("\nEvolves Into: ");
+
+					for (int i = 0; i < monData->EvolvesTo.size(); i++)
+					{
+						// cut out duplicate entries (megas, gmax, alolan / galarian forms, etc)
+						if (i == 0 || monData->EvolvesTo[i]->Name != monData->EvolvesTo[0]->Name)
+						{
+							if (i != 0)
+							{
+								dataString += ", ";
+							}
+
+							dataString += monData->EvolvesTo[i]->Name;
+						}
+					}
 				}
 
 
@@ -332,6 +381,9 @@ void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 				Pokemon_Data* monData = generator->RandomPokemon(type, 1);
 				sendMessage(message.channelID, std::string("Encountered random ") + params + " type Pokemon, " + monData->Name + "!");
 
+				//Pokemon_Instance* monInstance = new Pokemon_Instance(monData);
+				//Pokemon_Gender gender = monInstance->Gender();
+
 				author->StartEncounter(monData);
 			}
 			else
@@ -442,7 +494,7 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 			for (int i = 0; i < party.size(); i++)
 			{
 				char buffer[8];
-				itoa(i + 1, buffer, 10);
+				_itoa_s(i + 1, buffer, 10);
 
 				partyStr += buffer;
 				partyStr += ": ";
