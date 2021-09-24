@@ -22,7 +22,7 @@ void Generator::SortPokemon(std::map<int, std::vector<Pokemon_Data*>> &pokedex)
 	{
 		Pokemon_Data* pokemon = (it->second[0]);
 
-		if (pokemon->Legedary)
+		if (pokemon->Legedary || pokemon->Mythical || pokemon->UltraBeast)
 			continue;
 
 		if (pokemon->Type1 != Type::None)

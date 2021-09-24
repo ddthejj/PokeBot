@@ -19,7 +19,7 @@ Pokemon_Instance::Pokemon_Instance(Pokemon_Data* data)
 	PersonalityValue = random_number;
 }
 
-Pokemon_Gender Pokemon_Instance::Gender()
+Pokemon_Gender Pokemon_Instance::GetGender()
 {
 	if (Data->Genderless)
 	{

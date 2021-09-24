@@ -1,4 +1,7 @@
 #include "PokemonDatabase.h"
+
+#include "Evolution.h"
+
 #include <iostream>
 #include <fstream>
 #include <cassert>
@@ -15,13 +18,13 @@ enum class CSV_Sort
 	genus,
 	gen_introduced,
 	female_rate, genderless, baby_pokemon,
-	legendary, mythical,
+	legendary, mythical, ultrabeast,
 	is_default, forms_switchable,
 	base_experience, capture_rate,
 	egg_groups, egg_groups2,
 	egg_cycles,
 	base_happiness,
-	can_evolve, evolves_from,
+	can_evolve, evolves_from, evolve_condition,
 	primary_color, shape
 };
 
@@ -32,7 +35,7 @@ Pokemon_Data::Pokemon_Data(
 	Type In_Type1, Type In_Type2,
 	int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed,
 	int In_Gen,
-	bool In_Legendary, bool In_Mythical,
+	bool In_Legendary, bool In_Mythical, bool In_UltraBeast,
 	int In_Stage,
 	int In_Ability1, int In_Ability2, int In_HiddenAbility,
 	float In_Height, float In_Weight,
@@ -54,7 +57,7 @@ Pokemon_Data::Pokemon_Data(
 	Type1 = In_Type1; Type2 = In_Type2;
 	Base_HP = In_Base_HP; Base_Attack = In_Base_Attack;	Base_Defense = In_Base_Defense;	Base_SpAttack = In_Base_SpAttack; Base_SpDefense = In_Base_SpDefense; Base_Speed = In_Base_Speed;
 	Gen = In_Gen;
-	Legedary = In_Legendary; Mythical = In_Mythical;
+	Legedary = In_Legendary; Mythical = In_Mythical; UltraBeast = In_UltraBeast;
 	Stage = In_Stage;
 	Ability1 = In_Ability1; Ability2 = In_Ability2; HiddenAbility = In_HiddenAbility;
 	Height = In_Height; Weight = In_Weight;
@@ -744,7 +747,7 @@ Pokedex::Pokedex()
 		int In_Base_HP = atoi(words[(int)CSV_Sort::hp].c_str()), In_Base_Attack = atoi(words[(int)CSV_Sort::attack].c_str()), In_Base_Defense = atoi(words[(int)CSV_Sort::defense].c_str()),
 			In_Base_SpAttack = atoi(words[(int)CSV_Sort::special_attack].c_str()), In_Base_SpDefense = atoi(words[(int)CSV_Sort::special_defense].c_str()), In_Base_Speed = atoi(words[(int)CSV_Sort::speed].c_str());
 		int In_Gen = atoi(words[(int)CSV_Sort::gen_introduced].c_str());
-		bool In_Legendary = words[(int)CSV_Sort::legendary] == std::string("TRUE"), In_Mythical = words[(int)CSV_Sort::mythical] == std::string("TRUE");
+		bool In_Legendary = words[(int)CSV_Sort::legendary] == std::string("TRUE"), In_Mythical = words[(int)CSV_Sort::mythical] == std::string("TRUE"), In_UltraBeast = words[(int)CSV_Sort::ultrabeast] == std::string("TRUE");
 		int In_Stage = -1;
 		int In_Ability1 = abilityNums[0], In_Ability2 = abilityNums[1], In_HiddenAbility = abilityNums[2];
 		float In_Height = (float)atof(words[(int)CSV_Sort::height].c_str()), In_Weight = (float)atof(words[(int)CSV_Sort::weight].c_str());
@@ -772,7 +775,7 @@ Pokedex::Pokedex()
 			In_Type1, In_Type2,
 			In_Base_HP, In_Base_Attack, In_Base_Defense, In_Base_SpAttack, In_Base_SpDefense, In_Base_Speed,
 			In_Gen,
-			In_Legendary, In_Mythical,
+			In_Legendary, In_Mythical, In_UltraBeast,
 			In_Stage,
 			In_Ability1, In_Ability2, In_HiddenAbility,
 			In_Height, In_Weight,
@@ -883,7 +886,14 @@ Pokedex::Pokedex()
 			{
 				if (mon->EvolvesFrom->EvolvesFrom->IsBaby)
 				{
-					mon->Stage = 2;
+					if (mon->EvolvesFrom->DexNum == mon->EvolvesFrom->EvolvesFrom->DexNum + 1)
+					{
+						mon->Stage = 3;
+					}
+					else
+					{
+						mon->Stage = 2;
+					}
 				}
 				else
 				{
@@ -894,7 +904,15 @@ Pokedex::Pokedex()
 			{
 				if (mon->EvolvesFrom->IsBaby)
 				{
-					mon->Stage = 1;
+					if (mon->DexNum == mon->EvolvesFrom->DexNum + 1)
+					{
+						mon->Stage = 2;
+						mon->EvolvesFrom->Stage = 1;
+					}
+					else
+					{
+						mon->Stage = 1;
+					}
 				}
 				else
 				{

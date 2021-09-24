@@ -1,8 +1,10 @@
 #pragma once
+
 #include <map>
 #include <vector>
-
 #include <string>
+
+enum class EvolutionMethod;
 
 enum class Type
 {
@@ -85,6 +87,12 @@ enum class PokemonShape
 	PokemonShape_Max
 };
 
+struct Evolution
+{
+	Pokemon_Data* EvolvesTo = nullptr;
+	EvolutionMethod* Method = nullptr;
+};
+
 class Pokemon_Data
 {
 public:
@@ -97,7 +105,7 @@ public:
 		Type In_Type1, Type In_Type2,
 		int In_Base_HP, int In_Base_Attack, int In_Base_Defense, int In_Base_SpAttack, int In_Base_SpDefense, int In_Base_Speed,
 		int In_Gen, 
-		bool In_Legendary, bool In_Mythical,
+		bool In_Legendary, bool In_Mythical, bool In_UltraBeast,
 		int In_Stage,
 		int In_Ability1, int In_Ability2, int In_HiddenAbility,
 		float In_Height, float In_Weight,
@@ -121,7 +129,7 @@ public:
 	Type Type1 = Type::None, Type2 = Type::None;
 	int Base_HP = 1, Base_Attack = 1, Base_Defense = 1, Base_SpAttack = 1, Base_SpDefense = 1, Base_Speed = 1;
 	int Gen = 0;
-	bool Legedary = false, Mythical = false;
+	bool Legedary = false, Mythical = false, UltraBeast = false;
 	int Stage = -1;
 	int Ability1 = -1, Ability2 = -1, HiddenAbility = -1;
 	float Height = -1.f, Weight = -1.f;
@@ -133,7 +141,7 @@ public:
 	int BaseHappiness = 0;
 	bool CanEvolve = false; 
 	Pokemon_Data* EvolvesFrom = nullptr;
-	std::vector<Pokemon_Data*> EvolvesTo;
+	std::vector<Evolution> EvolvesTo;
 	PokemonColor Color = PokemonColor::None;
 	PokemonShape Shape = PokemonShape::None;
 

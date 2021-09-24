@@ -4,6 +4,8 @@
 #include <string>
 
 class Pokemon_Data;
+class Item;
+enum class EvolutionMethod;
 
 enum class Pokemon_Nature
 {
@@ -62,11 +64,11 @@ class Pokemon_Instance
 	std::string Nickname;
 	uint8_t Level = 0; // 1 - 100
 	bool IsShiny = false;
-	// Held item
+	Item* HeldItem;
 	int8_t Ability = -1; // 0 - 2
 	// moves
 	uint8_t HPIV = 0, AttackIV = 0, DefenseIV = 0, SpecialAttackIV = 0, SpecialDefenseIV = 0, SpeedIV = 0; // 1 - 31
-	uint8_t AttackEV = 0, DefenseEV = 0, SpecialAttackEV = 0, SpecialDefenseEV = 0, SpeedEV = 0; // 0 - 255
+	uint8_t HPEV = 0, AttackEV = 0, DefenseEV = 0, SpecialAttackEV = 0, SpecialDefenseEV = 0, SpeedEV = 0; // 0 - 255
 	Pokemon_Nature Nature = Pokemon_Nature::None;
 	uint8_t Happiness = 0; // 0 - 255
 	// Characteristic
@@ -79,5 +81,29 @@ public:
 
 	Pokemon_Instance(Pokemon_Data* data);
 
-	Pokemon_Gender Gender();
+	Pokemon_Data* GetSpecies() { return Data; }
+	std::string GetNickname() { return Nickname; }
+	int GetLevel() { return (int)Level; }
+	bool GetIsShiny() { return IsShiny; }
+	Item* GetHeldItem() { return HeldItem; }
+	int GetAbility() { return (int)Ability; }
+	int GetHPIV() { return (int)HPIV; }
+	int GetAttackIV() { return (int)AttackIV; }
+	int GetDefenseIV() { return (int)DefenseIV; }
+	int GetSpecialAttackIV() { return (int)SpecialAttackIV; }
+	int GetSpecialDefenseIV() { return (int)SpecialDefenseIV; }
+	int GetSpeedIV() { return (int)SpeedIV; }
+	int* GetIVs() { int IVs[]{ (int)HPIV, (int)AttackIV, (int)DefenseIV, (int)SpecialAttackIV, (int)SpecialDefenseIV, (int)SpeedIV }; return IVs; }
+	int* GetEVs() { int EVs[]{ (int)HPEV, (int)AttackEV, (int)DefenseEV, (int)SpecialAttackEV, (int)SpecialDefenseEV, (int)SpeedEV }; return EVs; }
+	int GetHPEV() { return (int)HPEV; }
+	int GetAttackEV() { return (int)AttackEV; }
+	int GetDefenseEV() { return (int)DefenseEV; }
+	int GetSpecialAttackEV() { return (int)SpecialAttackEV; }
+	int GetSpecialDefenseEV() { return (int)SpecialDefenseEV; }
+	int GetSpeedEV() { return (int)SpeedEV; }
+	Pokemon_Nature GetNature() { return Nature; }
+	int GetFriendship() { return (int)Happiness; }
+	int GetAffection() { return (int)Affection; }
+
+	Pokemon_Gender GetGender();
 };
