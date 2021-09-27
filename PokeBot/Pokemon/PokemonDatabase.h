@@ -91,10 +91,14 @@ enum class PokemonShape
 
 struct Evolution
 {
-	Pokemon_Data* EvolvesTo = nullptr;
-	EvolutionMethod* Method = nullptr;
+	Pokemon_Data* Mon = nullptr;
+	std::vector<EvolutionMethod*> Method;
 
-	Evolution(Pokemon_Data* In_EvolvesTo, EvolutionMethod* In_EvolutionMethod) { EvolvesTo = In_EvolvesTo; Method = In_EvolutionMethod; }
+	Evolution() = default;
+	Evolution(Pokemon_Data* In_Mon, std::vector<EvolutionMethod*> In_EvolutionMethod) { Mon = In_Mon; Method = In_EvolutionMethod; }
+	~Evolution() { for (int i = 0; i < Method.size(); i++) delete Method[i]; }
+
+	std::string MethodToString(int i);
 };
 
 class Pokemon_Data
@@ -120,10 +124,11 @@ public:
 		int In_EggCycles,
 		int In_BaseHappiness,
 		bool In_CanEvolve,
-		Pokemon_Data* In_EvolvesFrom, EvolutionMethod* In_EvolutionType,
+		Evolution* In_EvolvesFrom,
 		PokemonColor In_Color,
 		PokemonShape In_Shape
 	);
+	~Pokemon_Data();
 
 	int DexNum = -1;
 	std::string Name = "ERROR_NAME";
@@ -144,8 +149,8 @@ public:
 	int EggCycles = 0;
 	int BaseHappiness = 0;
 	bool CanEvolve = false; 
-	Pokemon_Data* EvolvesFrom = nullptr;
-	std::vector<Evolution> EvolvesTo; EvolutionMethod* EvolutionType;
+	Evolution* EvolvesFrom;
+	std::vector<Evolution*> EvolvesTo;
 	PokemonColor Color = PokemonColor::None;
 	PokemonShape Shape = PokemonShape::None;
 

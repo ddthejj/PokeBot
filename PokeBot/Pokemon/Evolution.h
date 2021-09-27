@@ -26,12 +26,17 @@ enum class EvolutionType
 	Party,
 	Personality,
 	Gender,
+	Form,
 	Area,
 	TradeWith,
 	Upsidedown,
+	Amie,
 	Weather,
 	Nature,
-	Candy
+	Candy,
+	Damage,
+	Spin,
+	Crit
 };
 
 enum class TimeOfDay
@@ -54,6 +59,7 @@ public:
 	static EvolutionMethod* MakeEvolutionMethod(std::string method);
 
 	virtual bool CanEvolve(Pokemon_Instance* pokemon) = 0;
+	virtual std::string ToString();
 
 	EvolutionType GetEvolutionType() { return Type; }
 };
@@ -194,6 +200,17 @@ public:
 	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
 };
 
+class EvolutionMethodForm : public EvolutionMethod
+{
+	Pokemon_Data* Form;
+
+public:
+
+	EvolutionMethodForm() { Type = EvolutionType::Form; };
+
+	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
+};
+
 class EvolutionMethodArea : public EvolutionMethod
 {
 	// area variable?
@@ -229,6 +246,15 @@ public:
 	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
 };
 
+class EvolutionMethodAmie : public EvolutionMethod
+{
+public:
+	
+	EvolutionMethodAmie() { Type = EvolutionType::Amie; }
+
+	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
+};
+
 class EvolutionMethodWeather : public EvolutionMethod
 {
 	Weather EvoWeather;
@@ -259,5 +285,38 @@ public:
 
 	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
 
-	virtual bool OnCandy() {}
+	virtual void OnCandy() {}
+};
+
+class EvolutionMethodDamage : public EvolutionMethod
+{
+public:
+
+	EvolutionMethodDamage() { Type = EvolutionType::Damage; };
+
+	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
+
+	virtual void OnBattleEnd() {}
+};
+
+class EvolutionMethodSpin : public EvolutionMethod
+{
+public:
+
+	EvolutionMethodSpin() { Type = EvolutionType::Spin; };
+
+	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
+
+	virtual void OnSpin() {}
+};
+
+class EvolutionMethodCrit : public EvolutionMethod
+{
+public: 
+
+	EvolutionMethodCrit() { Type = EvolutionType::Crit; }
+
+	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
+
+	virtual void OnBattleEnd() {}
 };

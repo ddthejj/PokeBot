@@ -107,7 +107,7 @@ void PokeBotClient::onServer(SleepyDiscord::Server server)
 
 void PokeBotClient::pkbHelp(SleepyDiscord::Message message)
 {
-	sendMessage(message.channelID, 
+	sendMessage(message.channelID,
 		std::string("PokeBot commands:\
 		\nData: -pkb data [pokemon name]\
 		\nView the data of the selected Pokemon\
@@ -144,14 +144,14 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 			params++;
 		}
 
-		for (int i = 1; i < dex->pokedex.size() + 1; i++)
+		for (auto it = dex->pokedex.begin(); it != dex->pokedex.end(); ++it)
 		{
-			if (0 == _stricmp(dex->pokedex[i][0]->Name.c_str(), params))
+			if (0 == _stricmp(dex->pokedex[it->first][0]->Name.c_str(), params))
 			{
-				Pokemon_Data* monData = dex->pokedex[i][0];
+				Pokemon_Data* monData = dex->pokedex[it->first][0];
 
 				char num[32];
-				_itoa_s(i, num, 10);
+				_itoa_s(it->first, num, 10);
 				char hp[32];
 				_itoa_s(monData->Base_HP, hp, 10);
 				char att[32];
@@ -216,7 +216,7 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 
 				if (monData->EvolvesFrom)
 				{
-					dataString += std::string("\nEvolves From: ") + monData->EvolvesFrom->Name;
+					dataString += std::string("\nEvolves From: ") + monData->EvolvesFrom->Mon->Name;
 				}
 				if (monData->EvolvesTo.size())
 				{
@@ -225,14 +225,25 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 					for (int i = 0; i < monData->EvolvesTo.size(); i++)
 					{
 						// cut out duplicate entries (megas, gmax, alolan / galarian forms, etc)
-						if (i == 0 || monData->EvolvesTo[i].EvolvesTo->Name != monData->EvolvesTo[0].EvolvesTo->Name)
+						if (i == 0 || monData->EvolvesTo[i]->Mon->Name != monData->EvolvesTo[0]->Mon->Name)
 						{
 							if (i != 0)
 							{
 								dataString += ", ";
 							}
 
-							dataString += monData->EvolvesTo[i].EvolvesTo->Name;
+							dataString += monData->EvolvesTo[i]->Mon->Name;
+							dataString += " - ";
+
+							for (int j = 0; j < monData->EvolvesTo[i]->Method.size(); j++)
+							{
+								if (j != 0)
+								{
+									dataString += " and ";
+								}
+
+								dataString += monData->EvolvesTo[i]->MethodToString(j);
+							}
 						}
 					}
 				}

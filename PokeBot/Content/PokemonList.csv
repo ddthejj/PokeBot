@@ -30,8 +30,8 @@ Pidgeot Mega,Mega,18,No Guard,,,Normal,Flying,83,80,80,135,80,121,22,505,Bird Po
 Rattata,,19,Run Away,Guts,Hustle,Normal,,30,56,35,25,35,72,3,35,Mouse Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,51,255,Field,,15,70,TRUE,,,Purple,Quadruped
 Rattata Alola,Alolan,19,Gluttony,Hustle,Thick Fat,Dark,Normal,30,56,35,25,35,72,3,38,Mouse Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,51,255,Field,,15,70,TRUE,,,Purple,Quadruped
 Raticate,,20,Run Away,Guts,Hustle,Normal,,55,81,60,50,70,97,7,185,Mouse Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,145,127,Field,,15,70,FALSE,Rattata,n20,Brown,Quadruped
-Raticate Alola,Alolan,20,Gluttony,Hustle,Thick Fat,Dark,Normal,75,71,70,40,80,77,7,255,Mouse Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,145,127,Field,,15,70,FALSE,Rattata,"n20,tNighttime",Brown,Quadruped
-Raticate Totem Alola,Totem Alolan,20,Gluttony,Hustle,Thick Fat,Dark,Normal,75,71,70,40,80,77,14,1050,Mouse Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,145,127,Field,,15,70,FALSE,Rattata,"n20,tNighttime",Brown,Quadruped
+Raticate Alola,Alolan,20,Gluttony,Hustle,Thick Fat,Dark,Normal,75,71,70,40,80,77,7,255,Mouse Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,145,127,Field,,15,70,FALSE,Rattata,n20-tNighttime,Brown,Quadruped
+Raticate Totem Alola,Totem Alolan,20,Gluttony,Hustle,Thick Fat,Dark,Normal,75,71,70,40,80,77,14,1050,Mouse Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,145,127,Field,,15,70,FALSE,Rattata,n20-tNighttime,Brown,Quadruped
 Spearow,,21,Keen Eye,Sniper,,Normal,Flying,40,60,30,31,31,70,3,20,Tiny Bird Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,52,255,Flying,,15,70,TRUE,,,Brown,Wings
 Fearow,,22,Keen Eye,Sniper,,Normal,Flying,65,90,65,61,61,100,12,380,Beak Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,155,90,Flying,,15,70,FALSE,Spearow,n20,Brown,Wings
 Ekans,,23,Intimidate,Shed Skin,Unnerve,Poison,,35,60,44,40,54,55,20,69,Snake Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,58,255,Field,Dragon,20,70,TRUE,,,Purple,Squiggle
@@ -161,15 +161,15 @@ Cubone,,104,Rock Head,Lightning Rod,Battle Armor,Ground,,50,50,95,40,50,35,4,65,
 Marowak,,105,Rock Head,Lightning Rod,Battle Armor,Ground,,60,80,110,50,80,45,10,450,Bone Keeper Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,149,75,Monster,,20,70,FALSE,Cubone,n28,Brown,Upright
 Marowak Alola,Alolan,105,Cursed Body,Lightning Rod,Rock Head,Fire,Ghost,60,80,110,50,80,45,10,340,Bone Keeper Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,149,75,Monster,,20,70,FALSE,Cubone,n28,Brown,Upright
 Marowak Totem,Totem,105,Cursed Body,Lightning Rod,Rock Head,Fire,Ghost,60,80,110,50,80,45,17,980,Bone Keeper Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,149,75,Monster,,20,70,FALSE,Cubone,n28,Brown,Upright
-Hitmonlee,,106,Limber,Reckless,Unburden,Fighting,,50,120,53,35,110,87,15,498,Kicking Pokémon,1,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,159,45,Human-Like,,25,70,FALSE,Tyrogue,"n20,sAt>Df",Brown,Humanoid
-Hitmonchan,,107,Keen Eye,Iron Fist,Inner Focus,Fighting,,50,105,79,35,110,76,14,502,Punching Pokémon,1,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,159,45,Human-Like,,25,70,FALSE,Tyrogue,"n20,sDf>At",Brown,Humanoid
+Hitmonlee,,106,Limber,Reckless,Unburden,Fighting,,50,120,53,35,110,87,15,498,Kicking Pokémon,1,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,159,45,Human-Like,,25,70,FALSE,Tyrogue,n20-sAt>Df,Brown,Humanoid
+Hitmonchan,,107,Keen Eye,Iron Fist,Inner Focus,Fighting,,50,105,79,35,110,76,14,502,Punching Pokémon,1,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,159,45,Human-Like,,25,70,FALSE,Tyrogue,n20-sDf>At,Brown,Humanoid
 Lickitung,,108,Own Tempo,Oblivious,Cloud Nine,Normal,,90,55,75,60,75,30,12,655,Licking Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,77,45,Monster,,20,70,TRUE,,,Pink,Upright
 Koffing,,109,Levitate,,,Poison,,40,65,95,60,45,35,6,10,Poison Gas Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,68,190,Amorphous,,20,70,TRUE,,,Purple,Ball
 Weezing,,110,Levitate,,,Poison,,65,90,120,85,70,60,12,95,Poison Gas Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,172,60,Amorphous,,20,70,FALSE,Koffing,n35,Purple,Heads
 Weezing Galar,Galarian,110,Levitate,Neutralizing Gas,Misty Surge,Poison,Fairy,65,90,120,85,70,60,30,160,Poison Gas Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,172,60,Amorphous,,20,70,FALSE,Koffing,n35,Purple,Heads
 Rhyhorn,,111,Lightning Rod,Rock Head,Reckless,Ground,Rock,80,85,95,30,30,25,10,1150,Spikes Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,69,120,Monster,Field,20,70,TRUE,,,Gray,Quadruped
 Rhydon,,112,Lightning Rod,Rock Head,Reckless,Ground,Rock,105,130,120,45,45,40,19,1200,Drill Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,170,60,Monster,Field,20,70,TRUE,Rhyhorn,n42,Gray,Upright
-Chansey,,113,Natural Cure,Serene Grace,Healer,Normal,,250,5,5,35,105,50,11,346,Egg Pokémon,1,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,395,30,Fairy,,40,140,TRUE,Happiny,"hOvalStone,tDaytime",Pink,Upright
+Chansey,,113,Natural Cure,Serene Grace,Healer,Normal,,250,5,5,35,105,50,11,346,Egg Pokémon,1,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,395,30,Fairy,,40,140,TRUE,Happiny,hOvalStone-tDaytime,Pink,Upright
 Tangela,,114,Chlorophyll,Leaf Guard,Regenerator,Grass,,65,55,115,100,40,60,10,350,Vine Pokémon,1,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,87,45,Grass,,20,70,TRUE,,,Blue,Legs
 Kangaskhan,,115,Early Bird,Scrappy,Inner Focus,Normal,,105,95,80,40,80,90,22,800,Parent Pokémon,1,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,172,45,Monster,,20,70,FALSE,,,Brown,Upright
 Kangaskhan Mega,Mega,115,Parental Bond,,,Normal,,105,125,100,60,100,100,22,1000,Parent Pokémon,1,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,207,45,Monster,,20,70,FALSE,,,Brown,Upright
@@ -256,7 +256,7 @@ Bellossom,,182,Chlorophyll,Healer,,Grass,,75,80,95,90,100,50,4,58,Flower Pokémo
 Marill,,183,Thick Fat,Huge Power,Sap Sipper,Water,Fairy,70,20,50,20,50,40,4,85,Aqua Mouse Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,88,190,Water 1,Fairy,10,70,TRUE,Azurill,fFriend,Blue,Upright
 Azumarill,,184,Thick Fat,Huge Power,Sap Sipper,Water,Fairy,100,50,80,60,80,50,8,285,Aqua Rabbit Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,189,75,Water 1,Fairy,10,70,FALSE,Marill,n18,Blue,Upright
 Sudowoodo,,185,Sturdy,Rock Head,Rattled,Rock,,70,100,115,30,65,30,12,380,Imitation Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,144,65,Mineral,,20,70,FALSE,Bonsly,mMimic,Brown,Humanoid
-Politoed,,186,Water Absorb,Damp,Drizzle,Water,,90,75,75,90,100,70,11,339,Frog Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,225,45,Water 1,,20,70,FALSE,Poliwhirl,"oTrade,hKingsrock",Green,Humanoid
+Politoed,,186,Water Absorb,Damp,Drizzle,Water,,90,75,75,90,100,70,11,339,Frog Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,225,45,Water 1,,20,70,FALSE,Poliwhirl,oTrade-hKingsrock,Green,Humanoid
 Hoppip,,187,Chlorophyll,Leaf Guard,Infiltrator,Grass,Flying,35,35,40,35,55,50,4,5,Cottonweed Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,50,255,Fairy,Grass,20,70,TRUE,,,Pink,Upright
 Skiploom,,188,Chlorophyll,Leaf Guard,Infiltrator,Grass,Flying,55,45,50,45,65,80,6,10,Cottonweed Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,119,120,Fairy,Grass,20,70,TRUE,Hoppip,n18,Green,Upright
 Jumpluff,,189,Chlorophyll,Leaf Guard,Infiltrator,Grass,Flying,75,55,70,55,95,110,8,30,Cottonweed Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,207,45,Fairy,Grass,20,70,FALSE,Skiploom,n27,Blue,Upright
@@ -266,10 +266,10 @@ Sunflora,,192,Chlorophyll,Solar Power,Early Bird,Grass,,75,75,55,105,85,30,8,85,
 Yanma,,193,Speed Boost,Compound Eyes,Frisk,Bug,Flying,65,65,45,75,45,95,12,380,Clear Wing Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,78,75,Bug,,20,70,TRUE,,,Red,Bug-Wings
 Wooper,,194,Damp,Water Absorb,Unaware,Water,Ground,55,45,45,25,25,15,4,85,Water Fish Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,42,255,Water 1,Field,20,70,TRUE,,,Blue,Legs
 Quagsire,,195,Damp,Water Absorb,Unaware,Water,Ground,95,85,85,65,65,35,14,750,Water Fish Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,151,90,Water 1,Field,20,70,FALSE,Wooper,n20,Blue,Upright
-Espeon,,196,Synchronize,Magic Bounce,,Psychic,,65,65,60,130,95,110,9,265,Sun Pokémon,2,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,70,FALSE,Eevee,"fFriend,tDaytime",Purple,Quadruped
-Umbreon,,197,Synchronize,Inner Focus,,Dark,,95,65,110,60,130,65,10,270,Moonlight Pokémon,2,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,35,FALSE,Eevee,"fFriend,tNighttime",Black,Quadruped
+Espeon,,196,Synchronize,Magic Bounce,,Psychic,,65,65,60,130,95,110,9,265,Sun Pokémon,2,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,70,FALSE,Eevee,fFriend-tDaytime,Purple,Quadruped
+Umbreon,,197,Synchronize,Inner Focus,,Dark,,95,65,110,60,130,65,10,270,Moonlight Pokémon,2,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,35,FALSE,Eevee,fFriend-tNighttime,Black,Quadruped
 Murkrow,,198,Insomnia,Super Luck,Prankster,Dark,Flying,60,85,42,85,42,91,5,21,Darkness Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,81,30,Flying,,20,35,TRUE,,,Black,Wings
-Slowking,,199,Oblivious,Own Tempo,Regenerator,Water,Psychic,95,75,80,100,110,30,20,795,Royal Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,172,70,Monster,Water 1,20,70,FALSE,Slowpoke,"oTrade,hKingsrock",Pink,Upright
+Slowking,,199,Oblivious,Own Tempo,Regenerator,Water,Psychic,95,75,80,100,110,30,20,795,Royal Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,172,70,Monster,Water 1,20,70,FALSE,Slowpoke,oTrade-hKingsrock,Pink,Upright
 Slowking Galar,Galarian,199,Curious Medicine,Own Tempo,Regenerator,Poison,Psychic,95,65,80,110,110,30,18,795,Royal Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,172,70,Monster,Water 1,20,70,FALSE,Slowpoke,uGalaricaWreath,Pink,Upright
 Misdreavus,,200,Levitate,,,Ghost,,60,60,60,85,85,85,7,10,Screech Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,87,45,Amorphous,,25,35,TRUE,,,Gray,Ball
 Unown,,201,Levitate,,,Psychic,,48,72,48,72,48,48,5,50,Symbol Pokémon,2,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,118,225,Undiscovered,,40,70,FALSE,,,Black,Ball
@@ -279,13 +279,13 @@ Pineco,,204,Sturdy,Overcoat,,Bug,,50,65,90,35,35,15,6,72,Bagworm Pokémon,2,0.5,
 Forretress,,205,Sturdy,Overcoat,,Bug,Steel,75,90,140,60,60,40,12,1258,Bagworm Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,163,75,Bug,,20,70,FALSE,Pineco,n31,Purple,Ball
 Dunsparce,,206,Serene Grace,Run Away,Rattled,Normal,,100,70,70,65,65,45,15,140,Land Snake Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,145,190,Field,,20,70,FALSE,,,Yellow,Squiggle
 Gligar,,207,Hyper Cutter,Sand Veil,Immunity,Ground,Flying,65,75,105,35,65,85,11,648,Fly Scorpion Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,86,60,Bug,,20,70,TRUE,,,Purple,Wings
-Steelix,,208,Rock Head,Sturdy,Sheer Force,Steel,Ground,75,85,200,55,65,30,92,4000,Iron Snake Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,179,25,Mineral,,25,70,FALSE,Onix,"oTrade,hMetalcoat",Gray,Squiggle
-Steelix Mega,Mega,208,Sand Force,,,Steel,Ground,75,125,230,55,95,30,105,7400,Iron Snake Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,214,25,Mineral,,25,70,FALSE,Onix,"oTrade,hMetalcoat",Gray,Squiggle
+Steelix,,208,Rock Head,Sturdy,Sheer Force,Steel,Ground,75,85,200,55,65,30,92,4000,Iron Snake Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,179,25,Mineral,,25,70,FALSE,Onix,oTrade-hMetalcoat,Gray,Squiggle
+Steelix Mega,Mega,208,Sand Force,,,Steel,Ground,75,125,230,55,95,30,105,7400,Iron Snake Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,214,25,Mineral,,25,70,FALSE,Onix,oTrade-hMetalcoat,Gray,Squiggle
 Snubbull,,209,Intimidate,Run Away,Rattled,Fairy,,60,80,50,40,40,30,6,78,Fairy Pokémon,2,0.75,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,60,190,Field,Fairy,20,70,TRUE,,,Pink,Humanoid
 Granbull,,210,Intimidate,Quick Feet,Rattled,Fairy,,90,120,75,60,60,45,14,487,Fairy Pokémon,2,0.75,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,158,75,Field,Fairy,20,70,FALSE,Snubbull,n23,Purple,Upright
 Qwilfish,,211,Poison Point,Swift Swim,Intimidate,Water,Poison,65,95,85,55,55,85,5,39,Balloon Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,88,45,Water 2,,20,70,FALSE,,,Gray,Fish
-Scizor,,212,Swarm,Technician,Light Metal,Bug,Steel,70,130,100,55,80,65,18,1180,Pincer Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,175,25,Bug,,25,70,FALSE,Scyther,"oTrade,hMetalcoat",Red,Bug-Wings
-Scizor Mega,Mega,212,Technician,,,Bug,Steel,70,150,140,65,100,75,20,1250,Pincer Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,210,25,Bug,,25,70,FALSE,Scyther,"oTrade,hMetalcoat",Red,Bug-Wings
+Scizor,,212,Swarm,Technician,Light Metal,Bug,Steel,70,130,100,55,80,65,18,1180,Pincer Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,175,25,Bug,,25,70,FALSE,Scyther,oTrade-hMetalcoat,Red,Bug-Wings
+Scizor Mega,Mega,212,Technician,,,Bug,Steel,70,150,140,65,100,75,20,1250,Pincer Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,210,25,Bug,,25,70,FALSE,Scyther,oTrade-hMetalcoat,Red,Bug-Wings
 Shuckle,,213,Sturdy,Gluttony,Contrary,Bug,Rock,20,10,230,10,230,5,6,205,Mold Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,177,190,Bug,,20,70,FALSE,,,Yellow,Armor
 Heracross,,214,Swarm,Guts,Moxie,Bug,Fighting,80,125,75,40,95,85,15,540,Single Horn Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,175,45,Bug,,25,70,FALSE,,,Blue,Humanoid
 Heracross Mega,Mega,214,Skill Link,,,Bug,Fighting,80,185,115,40,105,75,17,625,Single Horn Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,210,45,Bug,,25,70,FALSE,,,Blue,Humanoid
@@ -306,14 +306,14 @@ Skarmory,,227,Keen Eye,Sturdy,Weak Armor,Steel,Flying,65,80,140,40,70,70,17,505,
 Houndour,,228,Early Bird,Flash Fire,Unnerve,Dark,Fire,45,60,30,80,50,65,6,108,Dark Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,66,120,Field,,20,35,TRUE,,,Black,Quadruped
 Houndoom,,229,Early Bird,Flash Fire,Unnerve,Dark,Fire,75,90,50,110,80,95,14,350,Dark Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,175,45,Field,,20,35,FALSE,Houndour,n24,Black,Quadruped
 Houndoom Mega,Mega,229,Solar Power,,,Dark,Fire,75,90,90,140,90,115,19,495,Dark Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,210,45,Field,,20,35,FALSE,Houndour,n24,Black,Quadruped
-Kingdra,,230,Swift Swim,Sniper,Damp,Water,Dragon,75,95,95,95,95,85,18,1520,Dragon Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,243,45,Water 1,Dragon,20,70,FALSE,Seadra,"oTrade,hDragonscale",Blue,Blob
+Kingdra,,230,Swift Swim,Sniper,Damp,Water,Dragon,75,95,95,95,95,85,18,1520,Dragon Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,243,45,Water 1,Dragon,20,70,FALSE,Seadra,oTrade-hDragonscale,Blue,Blob
 Phanpy,,231,Pickup,Sand Veil,,Ground,,90,60,60,40,40,40,5,335,Long Nose Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,66,120,Field,,20,70,TRUE,,,Blue,Quadruped
 Donphan,,232,Sturdy,Sand Veil,,Ground,,90,120,120,60,60,50,11,1200,Armor Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,175,60,Field,,20,70,FALSE,Phanpy,n25,Gray,Quadruped
-Porygon2,,233,Trace,Download,Analytic,Normal,,85,80,90,105,95,60,6,325,Virtual Pokémon,2,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,180,45,Mineral,,20,70,TRUE,Porygon,"oTrade,hUpgrade",Red,Legs
+Porygon2,,233,Trace,Download,Analytic,Normal,,85,80,90,105,95,60,6,325,Virtual Pokémon,2,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,180,45,Mineral,,20,70,TRUE,Porygon,oTrade-hUpgrade,Red,Legs
 Stantler,,234,Intimidate,Frisk,Sap Sipper,Normal,,73,95,62,85,65,85,14,712,Big Horn Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,163,45,Field,,20,70,FALSE,,,Brown,Quadruped
 Smeargle,,235,Own Tempo,Technician,Moody,Normal,,55,20,35,20,45,75,12,580,Painter Pokémon,2,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,88,45,Field,,20,70,FALSE,,,White,Upright
 Tyrogue,,236,Guts,Steadfast,Vital Spirit,Fighting,,35,35,35,35,35,35,7,210,Scuffle Pokémon,2,0,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,42,75,Undiscovered,,25,70,TRUE,,,Purple,Humanoid
-Hitmontop,,237,Intimidate,Technician,Steadfast,Fighting,,50,95,95,35,110,70,14,480,Handstand Pokémon,2,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,159,45,Human-Like,,25,70,FALSE,Tyrogue,"n20,sAt=Df",Brown,Upright
+Hitmontop,,237,Intimidate,Technician,Steadfast,Fighting,,50,95,95,35,110,70,14,480,Handstand Pokémon,2,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,159,45,Human-Like,,25,70,FALSE,Tyrogue,n20-sAt=Df,Brown,Upright
 Smoochum,,238,Oblivious,Forewarn,Hydration,Ice,Psychic,45,30,15,85,65,65,4,60,Kiss Pokémon,2,1,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,61,45,Undiscovered,,25,70,TRUE,,,Pink,Humanoid
 Elekid,,239,Static,Vital Spirit,,Electric,,45,63,37,65,55,95,6,235,Electric Pokémon,2,0.25,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,72,45,Undiscovered,,25,70,TRUE,,,Yellow,Humanoid
 Magby,,240,Flame Body,Vital Spirit,,Fire,,45,75,37,70,55,83,7,214,Live Coal Pokémon,2,0.25,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,73,45,Undiscovered,,25,70,TRUE,,,Red,Upright
@@ -348,9 +348,9 @@ Zigzagoon Galar,Galarian,263,Pickup,Gluttony,Quick Feet,Dark,Normal,38,30,41,30,
 Linoone,,264,Pickup,Gluttony,Quick Feet,Normal,,78,70,61,50,61,100,5,325,Rushing Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,147,90,Field,,15,70,TRUE,Zigzagoon,n20,White,Quadruped
 Linoone Galar,Galarian,264,Pickup,Gluttony,Quick Feet,Dark,Normal,78,70,61,50,61,100,5,325,Rushing Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,147,90,Field,,15,70,TRUE,Zigzagoon,n20,White,Quadruped
 Wurmple,Wurmple,265,Shield Dust,Run Away,,Bug,,45,45,35,20,30,20,3,36,Worm Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,56,255,Bug,,15,70,TRUE,,,Red,Armor
-Silcoon,,266,Shed Skin,,,Bug,,50,35,55,25,25,15,6,100,Cocoon Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,72,120,Bug,,15,70,FALSE,Wurmple,"7,qPersonality",White,Ball
+Silcoon,,266,Shed Skin,,,Bug,,50,35,55,25,25,15,6,100,Cocoon Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,72,120,Bug,,15,70,FALSE,Wurmple,n7-qPersonality,White,Ball
 Beautifly,,267,Swarm,Rivalry,,Bug,Flying,60,70,50,100,50,65,10,284,Butterfly Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,178,45,Bug,,15,70,FALSE,Silcoon,n10,Yellow,Bug-Wings
-Cascoon,,268,Shed Skin,,,Bug,,50,35,55,25,25,15,7,115,Cocoon Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,72,120,Bug,,15,70,FALSE,Wurmple,"7,qPersonality",Purple,Ball
+Cascoon,,268,Shed Skin,,,Bug,,50,35,55,25,25,15,7,115,Cocoon Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,72,120,Bug,,15,70,FALSE,Wurmple,n7-qPersonality,Purple,Ball
 Dustox,,269,Shield Dust,Compound Eyes,,Bug,Poison,60,50,70,50,90,65,12,316,Poison Moth Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,45,Bug,,15,70,FALSE,Cascoon,n10,Green,Bug-Wings
 Lotad,,270,Swift Swim,Rain Dish,Own Tempo,Water,Grass,40,30,30,40,50,30,5,26,Water Weed Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,44,255,Water 1,Grass,15,70,TRUE,,,Green,Armor
 Lombre,,271,Swift Swim,Rain Dish,Own Tempo,Water,Grass,60,50,50,60,70,50,12,325,Jolly Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,119,120,Water 1,Grass,15,70,TRUE,Lotad,n14,Green,Humanoid
@@ -375,7 +375,7 @@ Vigoroth,,288,Vital Spirit,,,Normal,,80,80,80,55,55,90,14,465,Wild Monkey Pokém
 Slaking,,289,Truant,,,Normal,,150,160,100,95,65,100,20,1305,Lazy Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,252,45,Field,,15,70,FALSE,Vigoroth,n36,Brown,Humanoid
 Nincada,,290,Compound Eyes,Run Away,,Bug,Ground,31,45,90,30,30,40,5,55,Trainee Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,53,255,Bug,,15,70,TRUE,,,Gray,Armor
 Ninjask,,291,Speed Boost,Infiltrator,,Bug,Flying,61,90,45,50,50,160,8,120,Ninja Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,160,120,Bug,,15,70,FALSE,Nincada,n20,Yellow,Bug-Wings
-Shedinja,,292,Wonder Guard,,,Bug,Ghost,1,90,45,30,30,40,8,12,Shed Pokémon,3,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,83,45,Mineral,,15,70,FALSE,Nincada,"n20,pEmpty",Brown,Blob
+Shedinja,,292,Wonder Guard,,,Bug,Ghost,1,90,45,30,30,40,8,12,Shed Pokémon,3,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,83,45,Mineral,,15,70,FALSE,Nincada,n20-pEmpty,Brown,Blob
 Whismur,,293,Soundproof,Rattled,,Normal,,64,51,23,51,23,28,6,163,Whisper Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,48,190,Monster,Field,20,70,TRUE,,,Pink,Upright
 Loudred,,294,Soundproof,Scrappy,,Normal,,84,71,43,71,43,48,10,405,Big Voice Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,126,120,Monster,Field,20,70,TRUE,Whismur,n20,Blue,Upright
 Exploud,,295,Soundproof,Scrappy,,Normal,,104,91,63,91,73,68,15,840,Loud Noise Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,221,45,Monster,Field,20,70,FALSE,Loudred,n40,Blue,Upright
@@ -403,7 +403,7 @@ Plusle,,311,Plus,Lightning Rod,,Electric,,60,50,40,85,75,95,4,42,Cheering Pokém
 Minun,,312,Minus,Volt Absorb,,Electric,,60,40,50,75,85,95,4,42,Cheering Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,142,200,Fairy,,20,70,FALSE,,,Yellow,Upright
 Volbeat,,313,Illuminate,Swarm,Prankster,Bug,,65,73,75,47,85,85,7,177,Firefly Pokémon,3,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,151,150,Bug,Human-Like,15,70,FALSE,,,Gray,Upright
 Illumise,,314,Oblivious,Tinted Lens,Prankster,Bug,,65,47,75,73,85,85,6,177,Firefly Pokémon,3,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,151,150,Bug,Human-Like,15,70,FALSE,,,Purple,Humanoid
-Roselia,,315,Natural Cure,Poison Point,Leaf Guard,Grass,Poison,50,60,45,100,80,65,3,20,Thorn Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,140,150,Fairy,Grass,20,70,TRUE,Budew,"fFriend,tDaytime",Green,Humanoid
+Roselia,,315,Natural Cure,Poison Point,Leaf Guard,Grass,Poison,50,60,45,100,80,65,3,20,Thorn Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,140,150,Fairy,Grass,20,70,TRUE,Budew,fFriend-tDaytime,Green,Humanoid
 Gulpin,,316,Liquid Ooze,Sticky Hold,Gluttony,Poison,,70,43,53,43,53,40,4,103,Stomach Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,60,225,Amorphous,,20,70,TRUE,,,Green,Arms
 Swalot,,317,Liquid Ooze,Sticky Hold,Gluttony,Poison,,100,73,83,73,83,55,17,800,Poison Bag Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,163,75,Amorphous,,20,70,FALSE,Gulpin,n26,Purple,Arms
 Carvanha,,318,Rough Skin,Speed Boost,,Water,Dark,45,90,20,65,20,65,8,208,Savage Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,61,225,Water 2,,20,35,TRUE,,,Red,Fish
@@ -441,7 +441,7 @@ Cradily,,346,Suction Cups,Storm Drain,,Rock,Grass,86,81,97,81,107,43,15,604,Barn
 Anorith,,347,Battle Armor,Swift Swim,,Rock,Bug,45,95,50,40,50,75,7,125,Old Shrimp Pokémon,3,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,71,45,Water 3,,30,70,TRUE,,,Gray,Armor
 Armaldo,,348,Battle Armor,Swift Swim,,Rock,Bug,75,125,100,70,80,45,15,682,Plate Pokémon,3,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,45,Water 3,,30,70,FALSE,Anorith,n40,Gray,Upright
 Feebas,,349,Swift Swim,Oblivious,Adaptability,Water,,20,15,20,10,55,80,6,74,Fish Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,40,255,Water 1,Dragon,20,70,TRUE,,,Brown,Fish
-Milotic,,350,Marvel Scale,Competitive,Cute Charm,Water,,95,60,79,100,125,81,62,1620,Tender Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,189,60,Water 1,Dragon,20,70,FALSE,Feebas,"oTrade,hPrismscale",Pink,Squiggle
+Milotic,,350,Marvel Scale,Competitive,Cute Charm,Water,,95,60,79,100,125,81,62,1620,Tender Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,189,60,Water 1,Dragon,20,70,FALSE,Feebas,oTrade-hPrismscale,Pink,Squiggle
 Castform,,351,Forecast,,,Normal,,70,70,70,70,70,70,3,8,Weather Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,147,45,Fairy,Amorphous,25,70,FALSE,,,Gray,Ball
 Castform Rainy,Rainy,351,Forecast,,,Water,,70,70,70,70,70,70,3,8,Weather Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,147,45,Fairy,Amorphous,25,70,FALSE,,,Gray,Ball
 Castform Snowy,Snowy,351,Forecast,,,Ice,,70,70,70,70,70,70,3,8,Weather Pokémon,3,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,147,45,Fairy,Amorphous,25,70,FALSE,,,Gray,Ball
@@ -520,12 +520,12 @@ Rampardos,,409,Mold Breaker,Sheer Force,,Rock,,97,165,60,65,50,58,16,1025,Head B
 Shieldon,,410,Sturdy,Soundproof,,Rock,Steel,30,42,118,42,88,30,5,570,Shield Pokémon,4,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,70,45,Monster,,30,70,TRUE,,,Gray,Quadruped
 Bastiodon,,411,Sturdy,Soundproof,,Rock,Steel,60,52,168,47,138,30,13,1495,Shield Pokémon,4,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,45,Monster,,30,70,FALSE,Shieldon,n30,Gray,Quadruped
 Burmy,,412,Shed Skin,Overcoat,,Bug,,40,29,45,29,45,36,2,34,Bagworm Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,45,120,Bug,,15,70,TRUE,,,Green,Blob
-Wormadam,Plant,413,Anticipation,Overcoat,,Bug,Grass,60,59,85,79,105,36,5,65,Bagworm Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,"n20,gFemale,lGrass",Green,Blob
-Wormadam Sandy,Sandy,413,Anticipation,Overcoat,,Bug,Ground,60,79,105,59,85,36,5,65,Bagworm Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,"n20,gFemale,lCave",Green,Blob
-Wormadam Trash,Trash,413,Anticipation,Overcoat,,Bug,Steel,60,69,95,69,95,36,5,65,Bagworm Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,"n20,gFemale,lBuilding",Green,Blob
-Mothim,,414,Swarm,Tinted Lens,,Bug,Flying,70,94,50,94,50,66,9,233,Moth Pokémon,4,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,"n20,gMale",Yellow,Bug-Wings
+Wormadam,Plant,413,Anticipation,Overcoat,,Bug,Grass,60,59,85,79,105,36,5,65,Bagworm Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,n20-gFemale-lGrass,Green,Blob
+Wormadam Sandy,Sandy,413,Anticipation,Overcoat,,Bug,Ground,60,79,105,59,85,36,5,65,Bagworm Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,n20-gFemale-lCave,Green,Blob
+Wormadam Trash,Trash,413,Anticipation,Overcoat,,Bug,Steel,60,69,95,69,95,36,5,65,Bagworm Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,n20-gFemale-lBuilding,Green,Blob
+Mothim,,414,Swarm,Tinted Lens,,Bug,Flying,70,94,50,94,50,66,9,233,Moth Pokémon,4,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,148,45,Bug,,15,70,FALSE,Burmy,n20-gMale,Yellow,Bug-Wings
 Combee,,415,Honey Gather,Hustle,,Bug,Flying,30,30,42,30,42,70,3,55,Tiny Bee Pokémon,4,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,49,120,Bug,,15,70,TRUE,,,Yellow,Heads
-Vespiquen,,416,Pressure,Unnerve,,Bug,Flying,70,80,102,80,102,40,12,385,Beehive Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,166,45,Bug,,15,70,FALSE,Combee,"n21,gFemale",Yellow,Bug-Wings
+Vespiquen,,416,Pressure,Unnerve,,Bug,Flying,70,80,102,80,102,40,12,385,Beehive Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,166,45,Bug,,15,70,FALSE,Combee,n21-gFemale,Yellow,Bug-Wings
 Pachirisu,,417,Run Away,Pickup,Volt Absorb,Electric,,60,45,70,45,90,95,4,39,EleSquirrel Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,142,200,Field,Fairy,10,100,FALSE,,,White,Quadruped
 Buizel,,418,Swift Swim,Water Veil,,Water,,55,65,35,60,30,85,7,295,Sea Weasel Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,66,190,Water 1,Field,20,70,TRUE,,,Brown,Quadruped
 Floatzel,,419,Swift Swim,Water Veil,,Water,,85,105,55,85,50,115,11,335,Sea Weasel Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,75,Water 1,Field,20,70,FALSE,Buizel,n26,Brown,Quadruped
@@ -574,25 +574,25 @@ Mantyke,,458,Swift Swim,Water Absorb,Water Veil,Water,Flying,45,20,50,60,120,50,
 Snover,,459,Snow Warning,Soundproof,,Grass,Ice,60,62,50,62,60,40,10,505,Frost Tree Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,67,120,Monster,Grass,20,70,TRUE,,,White,Upright
 Abomasnow,,460,Snow Warning,Soundproof,,Grass,Ice,90,92,75,92,85,60,22,1355,Frost Tree Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,173,60,Monster,Grass,20,70,FALSE,Snover,n40,White,Upright
 Abomasnow Mega,Mega,460,Snow Warning,,,Grass,Ice,90,132,105,132,105,30,27,1850,Frost Tree Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,208,60,Monster,Grass,20,70,FALSE,Snover,n40,White,Upright
-Weavile,,461,Pressure,Pickpocket,,Dark,Ice,70,120,65,45,85,125,11,340,Sharp Claw Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,179,45,Field,,20,35,FALSE,Sneasel,"hRazorclaw,tNighttime",Black,Upright
+Weavile,,461,Pressure,Pickpocket,,Dark,Ice,70,120,65,45,85,125,11,340,Sharp Claw Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,179,45,Field,,20,35,FALSE,Sneasel,hRazorclaw-tNighttime,Black,Upright
 Magnezone,,462,Magnet Pull,Sturdy,Analytic,Electric,Steel,70,70,115,130,90,60,12,1800,Magnet Area Pokémon,4,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,241,30,Mineral,,20,70,FALSE,Magneton,aMagneticField,Gray,Arms
 Lickilicky,,463,Own Tempo,Oblivious,Cloud Nine,Normal,,110,85,95,80,95,50,17,1400,Licking Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,180,30,Monster,,20,70,FALSE,Lickitung,mRollout,Pink,Humanoid
-Rhyperior,,464,Lightning Rod,Solid Rock,Reckless,Ground,Rock,115,140,130,55,55,40,24,2828,Drill Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,241,30,Monster,Field,20,70,FALSE,Rhydon,"oTrade,hProtector",Gray,Upright
+Rhyperior,,464,Lightning Rod,Solid Rock,Reckless,Ground,Rock,115,140,130,55,55,40,24,2828,Drill Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,241,30,Monster,Field,20,70,FALSE,Rhydon,oTrade-hProtector,Gray,Upright
 Tangrowth,,465,Chlorophyll,Leaf Guard,Regenerator,Grass,,100,100,125,110,50,50,20,1286,Vine Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,187,30,Grass,,20,70,FALSE,Tangela,mAncientpower,Blue,Humanoid
-Electivire,,466,Motor Drive,Vital Spirit,,Electric,,75,123,67,95,85,95,18,1386,Thunderbolt Pokémon,4,0.25,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,243,30,Human-Like,,25,70,FALSE,Electabuzz,"oTrade,hElectirizer",Yellow,Upright
-Magmortar,,467,Flame Body,Vital Spirit,,Fire,,75,95,67,125,95,83,16,680,Blast Pokémon,4,0.25,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,243,30,Human-Like,,25,70,FALSE,Magmar,"oTrade,hMagmarizer",Red,Upright
+Electivire,,466,Motor Drive,Vital Spirit,,Electric,,75,123,67,95,85,95,18,1386,Thunderbolt Pokémon,4,0.25,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,243,30,Human-Like,,25,70,FALSE,Electabuzz,oTrade-hElectirizer,Yellow,Upright
+Magmortar,,467,Flame Body,Vital Spirit,,Fire,,75,95,67,125,95,83,16,680,Blast Pokémon,4,0.25,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,243,30,Human-Like,,25,70,FALSE,Magmar,oTrade-hMagmarizer,Red,Upright
 Togekiss,,468,Hustle,Serene Grace,Super Luck,Fairy,Flying,85,50,95,120,115,80,15,380,Jubilee Pokémon,4,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,245,30,Flying,Fairy,10,70,FALSE,Togetic,uShinystone,White,Wings
 Yanmega,,469,Speed Boost,Tinted Lens,Frisk,Bug,Flying,86,76,86,116,56,95,19,515,Ogre Darner Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,180,30,Bug,,20,70,FALSE,Yanma,mAncientpower,Green,Bug-Wings
 Leafeon,,470,Leaf Guard,Chlorophyll,,Grass,,65,110,130,60,65,95,10,255,Verdant Pokémon,4,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,35,FALSE,Eevee,aLeafyrock,Green,Quadruped
 Glaceon,,471,Snow Cloak,Ice Body,,Ice,,65,60,110,130,95,65,8,259,Fresh Snow Pokémon,4,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,35,FALSE,Eevee,aIcyrock,Blue,Quadruped
-Gliscor,,472,Hyper Cutter,Sand Veil,Poison Heal,Ground,Flying,75,95,125,45,75,95,20,425,Fang Scorpion Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,179,30,Bug,,20,70,FALSE,Gligar,"hRazorfang,tNighttime",Purple,Wings
+Gliscor,,472,Hyper Cutter,Sand Veil,Poison Heal,Ground,Flying,75,95,125,45,75,95,20,425,Fang Scorpion Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,179,30,Bug,,20,70,FALSE,Gligar,hRazorfang-tNighttime,Purple,Wings
 Mamoswine,,473,Oblivious,Snow Cloak,Thick Fat,Ice,Ground,110,130,80,70,60,80,25,2910,Twin Tusk Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,239,50,Field,,20,70,FALSE,Piloswine,mAncientpower,Brown,Quadruped
-Porygon Z,,474,Adaptability,Download,Analytic,Normal,,85,80,70,135,75,90,9,340,Virtual Pokémon,4,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,241,30,Mineral,,20,70,FALSE,Porygon2,"oTrade,hDubiousdisc",Red,Arms
-Gallade,,475,Steadfast,Justified,,Psychic,Fighting,68,125,65,65,115,80,16,520,Blade Pokémon,4,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,233,45,Human-Like,Amorphous,20,35,FALSE,Kirlia,"uDawnstone,gMale",White,Humanoid
-Gallade Mega,Mega,475,Inner Focus,,,Psychic,Fighting,68,165,95,65,115,110,16,564,Blade Pokémon,4,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,278,45,Human-Like,Amorphous,20,35,FALSE,Kirlia,"uDawnstone,gMale",White,Humanoid
+Porygon Z,,474,Adaptability,Download,Analytic,Normal,,85,80,70,135,75,90,9,340,Virtual Pokémon,4,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,241,30,Mineral,,20,70,FALSE,Porygon2,oTrade-hDubiousdisc,Red,Arms
+Gallade,,475,Steadfast,Justified,,Psychic,Fighting,68,125,65,65,115,80,16,520,Blade Pokémon,4,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,233,45,Human-Like,Amorphous,20,35,FALSE,Kirlia,uDawnstone-gMale,White,Humanoid
+Gallade Mega,Mega,475,Inner Focus,,,Psychic,Fighting,68,165,95,65,115,110,16,564,Blade Pokémon,4,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,278,45,Human-Like,Amorphous,20,35,FALSE,Kirlia,uDawnstone-gMale,White,Humanoid
 Probopass,,476,Sturdy,Magnet Pull,Sand Force,Rock,Steel,60,55,145,75,150,40,14,3400,Compass Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,60,Mineral,,20,70,FALSE,Nosepass,aMagneticField,Gray,Heads
-Dusknoir,,477,Pressure,Frisk,,Ghost,,45,100,135,65,135,45,22,1066,Gripper Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,236,45,Amorphous,,25,35,FALSE,Dusclops,"oTrade,hReapercloth",Black,Arms
-Froslass,,478,Snow Cloak,Cursed Body,,Ice,Ghost,70,80,70,80,70,110,13,266,Snow Land Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,168,75,Fairy,Mineral,20,70,FALSE,Snorunt,"uDawnstone,gFemale",White,Arms
+Dusknoir,,477,Pressure,Frisk,,Ghost,,45,100,135,65,135,45,22,1066,Gripper Pokémon,4,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,236,45,Amorphous,,25,35,FALSE,Dusclops,oTrade-hReapercloth,Black,Arms
+Froslass,,478,Snow Cloak,Cursed Body,,Ice,Ghost,70,80,70,80,70,110,13,266,Snow Land Pokémon,4,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,168,75,Fairy,Mineral,20,70,FALSE,Snorunt,uDawnstone-gFemale,White,Arms
 Rotom,,479,Levitate,,,Electric,Ghost,50,50,77,95,77,91,3,3,Plasma Pokémon,4,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,154,45,Amorphous,,20,70,FALSE,,,Red,Ball
 Rotom Fan,Fan,479,Levitate,,,Electric,Flying,50,65,107,105,107,86,3,3,Plasma Pokémon,4,0,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,182,45,Amorphous,,20,70,FALSE,,,Red,Ball
 Rotom Frost,Frost,479,Levitate,,,Electric,Ice,50,65,107,105,107,86,3,3,Plasma Pokémon,4,0,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,182,45,Amorphous,,20,70,FALSE,,,Red,Ball
@@ -718,7 +718,7 @@ Deerling,,585,Chlorophyll,Sap Sipper,Serene Grace,Normal,Grass,60,60,50,40,50,75
 Sawsbuck,,586,Chlorophyll,Sap Sipper,Serene Grace,Normal,Grass,80,100,70,60,70,95,19,925,Season Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,166,75,Field,,20,70,FALSE,Deerling,n34,Brown,Quadruped
 Emolga,,587,Static,Motor Drive,,Electric,Flying,55,75,60,75,60,103,4,50,Sky Squirrel Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,150,200,Field,,20,70,FALSE,,,White,Quadruped
 Karrablast,,588,Swarm,Shed Skin,No Guard,Bug,,50,75,45,40,45,60,5,59,Clamping Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,63,200,Bug,,15,70,TRUE,,,Blue,Humanoid
-Escavalier,,589,Swarm,Shell Armor,Overcoat,Bug,Steel,70,135,105,60,105,20,10,330,Cavalry Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,75,Bug,,15,70,FALSE,Karrablast,"oTrade,wShelmet",Gray,Arms
+Escavalier,,589,Swarm,Shell Armor,Overcoat,Bug,Steel,70,135,105,60,105,20,10,330,Cavalry Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,75,Bug,,15,70,FALSE,Karrablast,oTrade-wShelmet,Gray,Arms
 Foongus,,590,Effect Spore,Regenerator,,Grass,Poison,69,55,45,55,55,15,2,10,Mushroom Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,59,190,Grass,,20,70,TRUE,,,White,Arms
 Amoonguss,,591,Effect Spore,Regenerator,,Grass,Poison,114,85,70,85,80,30,6,105,Mushroom Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,162,75,Grass,,20,70,FALSE,Foongus,n39,White,Arms
 Frillish,,592,Water Absorb,Cursed Body,Damp,Water,Ghost,55,40,50,65,85,40,12,330,Floating Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,67,190,Amorphous,,20,70,TRUE,,,White,Tentacles
@@ -746,7 +746,7 @@ Cubchoo,,613,Snow Cloak,Slush Rush,Rattled,Ice,,55,70,40,60,40,40,5,85,Chill Pok
 Beartic,,614,Snow Cloak,Slush Rush,Swift Swim,Ice,,95,130,80,70,80,50,26,2600,Freezing Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,177,60,Field,,20,70,FALSE,Cubchoo,n37,White,Quadruped
 Cryogonal,,615,Levitate,,,Ice,,80,50,50,95,135,105,11,1480,Crystallizing Pokémon,5,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,180,25,Mineral,,25,70,FALSE,,,Blue,Ball
 Shelmet,,616,Hydration,Shell Armor,Overcoat,Bug,,50,40,85,40,65,25,4,77,Snail Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,61,200,Bug,,15,70,TRUE,,,Red,Ball
-Accelgor,,617,Hydration,Sticky Hold,Unburden,Bug,,80,70,40,100,60,145,8,253,Shell Out Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,75,Bug,,15,70,FALSE,Shelmet,"oTrade,wKarrablast",Red,Arms
+Accelgor,,617,Hydration,Sticky Hold,Unburden,Bug,,80,70,40,100,60,145,8,253,Shell Out Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,75,Bug,,15,70,FALSE,Shelmet,oTrade-wKarrablast,Red,Arms
 Stunfisk,,618,Static,Limber,Sand Veil,Ground,Electric,109,66,84,81,99,32,7,110,Trap Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,165,75,Water 1,Amorphous,20,70,FALSE,,,Brown,Fish
 Stunfisk Galar,Galarian,618,Mimicry,,,Ground,Steel,109,81,99,66,84,32,7,205,Trap Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,165,75,Water 1,Amorphous,20,70,FALSE,,,Brown,Fish
 Mienfoo,,619,Inner Focus,Regenerator,Reckless,Fighting,,45,85,50,55,50,65,9,200,Martial Arts Pokémon,5,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,70,180,Field,Human-Like,25,70,TRUE,,,Yellow,Upright
@@ -815,21 +815,21 @@ Florges,,671,Flower Veil,Symbiosis,,Fairy,,78,65,68,112,154,75,11,100,Garden Pok
 Skiddo,,672,Sap Sipper,Grass Pelt,,Grass,,66,65,48,62,57,52,9,310,Mount Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,70,200,Field,,20,70,TRUE,,,Brown,Quadruped
 Gogoat,,673,Sap Sipper,Grass Pelt,,Grass,,123,100,62,97,81,68,17,910,Mount Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,186,45,Field,,20,70,FALSE,Skiddo,n32,Brown,Quadruped
 Pancham,,674,Iron Fist,Mold Breaker,Scrappy,Fighting,,67,82,62,46,48,43,6,80,Playful Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,70,220,Field,Human-Like,25,70,TRUE,,,White,Upright
-Pangoro,,675,Iron Fist,Mold Breaker,Scrappy,Fighting,Dark,95,124,78,69,71,58,21,1360,Daunting Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,65,Field,Human-Like,25,70,FALSE,Pancham,"n32,pDarkFriend",White,Humanoid
+Pangoro,,675,Iron Fist,Mold Breaker,Scrappy,Fighting,Dark,95,124,78,69,71,58,21,1360,Daunting Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,65,Field,Human-Like,25,70,FALSE,Pancham,n32-pDarkFriend,White,Humanoid
 Furfrou,,676,Fur Coat,,,Normal,,75,80,60,65,90,102,12,280,Poodle Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,165,160,Field,,20,70,FALSE,,,White,Quadruped
 Espurr,,677,Keen Eye,Infiltrator,Own Tempo,Psychic,,62,48,54,63,60,68,3,35,Restraint Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,71,190,Field,,20,70,TRUE,,,Gray,Upright
-Meowstic ,Female,678,Keen Eye,Infiltrator,Competitive,Psychic,,74,48,76,83,81,104,6,85,Constraint Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,163,75,Field,,20,70,FALSE,Espurr,"n25,gFemale",Blue,Upright
-Meowstic Male,Male,678,Keen Eye,Infiltrator,Prankster,Psychic,,74,48,76,83,81,104,6,85,Constraint Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,163,75,Field,,20,70,FALSE,Espurr,"n25,gMale",Blue,Upright
+Meowstic ,Female,678,Keen Eye,Infiltrator,Competitive,Psychic,,74,48,76,83,81,104,6,85,Constraint Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,163,75,Field,,20,70,FALSE,Espurr,n25-gFemale,Blue,Upright
+Meowstic Male,Male,678,Keen Eye,Infiltrator,Prankster,Psychic,,74,48,76,83,81,104,6,85,Constraint Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,163,75,Field,,20,70,FALSE,Espurr,n25-gMale,Blue,Upright
 Honedge,,679,No Guard,,,Steel,Ghost,45,80,100,35,37,28,8,20,Sword Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,65,180,Mineral,,20,70,TRUE,,,Brown,Blob
 Doublade,,680,No Guard,,,Steel,Ghost,59,110,150,45,49,35,8,45,Sword Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,157,90,Mineral,,20,70,TRUE,Honedge,n35,Brown,Heads
 Aegislash ,Shield,681,Stance Change,,,Steel,Ghost,60,50,140,50,140,60,17,530,Royal Sword Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,234,45,Mineral,,20,70,FALSE,Doublade,uDuskstone,Brown,Blob
 Aegislash ,Blade,681,Stance Change,,,Steel,Ghost,60,140,50,140,50,60,17,530,Royal Sword Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,234,45,Mineral,,20,70,FALSE,Doublade,uDuskstone,Brown,Blob
 Spritzee,,682,Healer,Aroma Veil,,Fairy,,78,52,60,63,65,23,2,5,Perfume Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,68,200,Fairy,,20,70,TRUE,,,Pink,Arms
-Aromatisse,,683,Healer,Aroma Veil,,Fairy,,101,72,72,99,89,29,8,155,Fragrance Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,162,140,Fairy,,20,70,FALSE,Spritzee,"oTrade,hSachet",Pink,Humanoid
+Aromatisse,,683,Healer,Aroma Veil,,Fairy,,101,72,72,99,89,29,8,155,Fragrance Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,162,140,Fairy,,20,70,FALSE,Spritzee,oTrade-hSachet,Pink,Humanoid
 Swirlix,,684,Sweet Veil,Unburden,,Fairy,,62,48,66,59,57,49,4,35,Cotton Candy Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,68,200,Fairy,,20,70,TRUE,,,White,Legs
-Slurpuff,,685,Sweet Veil,Unburden,,Fairy,,82,80,86,85,75,72,8,50,Meringue Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,168,140,Fairy,,20,70,FALSE,Swirlix,"oTrade,hWhippeddream",White,Humanoid
+Slurpuff,,685,Sweet Veil,Unburden,,Fairy,,82,80,86,85,75,72,8,50,Meringue Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,168,140,Fairy,,20,70,FALSE,Swirlix,oTrade-hWhippeddream,White,Humanoid
 Inkay,,686,Contrary,Suction Cups,Infiltrator,Dark,Psychic,53,54,53,37,46,45,4,35,Revolving Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,58,190,Water 1,Water 2,20,70,TRUE,,,Blue,Tentacles
-Malamar,,687,Contrary,Suction Cups,Infiltrator,Dark,Psychic,86,92,88,68,75,73,15,470,Overturning Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,169,80,Water 1,Water 2,20,70,FALSE,Inkay,"n30,~Upsidedown",Blue,Blob
+Malamar,,687,Contrary,Suction Cups,Infiltrator,Dark,Psychic,86,92,88,68,75,73,15,470,Overturning Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,169,80,Water 1,Water 2,20,70,FALSE,Inkay,n30-~Upsidedown,Blue,Blob
 Binacle,,688,Tough Claws,Sniper,Pickpocket,Rock,Water,42,52,67,39,56,50,5,310,Two-Handed Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,61,120,Water 3,,20,70,TRUE,,,Brown,Heads
 Barbaracle,,689,Tough Claws,Sniper,Pickpocket,Rock,Water,72,105,115,54,86,68,13,960,Collective Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,175,45,Water 3,,20,70,FALSE,Binacle,n39,Brown,Heads
 Skrelp,,690,Poison Point,Poison Touch,Adaptability,Poison,Water,50,60,60,60,60,30,5,73,Mock Kelp Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,64,225,Water 1,Dragon,20,70,TRUE,,,Brown,Blob
@@ -839,16 +839,16 @@ Clawitzer,,693,Mega Launcher,,,Water,,71,73,88,120,89,59,13,353,Howitzer Pokémo
 Helioptile,,694,Dry Skin,Sand Veil,Solar Power,Electric,Normal,44,38,33,61,43,70,5,60,Generator Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,58,190,Monster,Dragon,20,70,TRUE,,,Yellow,Upright
 Heliolisk,,695,Dry Skin,Sand Veil,Solar Power,Electric,Normal,62,55,52,109,94,109,10,210,Generator Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,168,75,Monster,Dragon,20,70,FALSE,Helioptile,uSunstone,Yellow,Upright
 Tyrunt,,696,Strong Jaw,Sturdy,,Rock,Dragon,58,89,77,45,45,48,8,260,Royal Heir Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,72,45,Monster,Dragon,30,70,TRUE,,,Brown,Upright
-Tyrantrum,,697,Strong Jaw,Rock Head,,Rock,Dragon,82,121,119,69,59,71,25,2700,Despot Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,182,45,Monster,Dragon,30,70,FALSE,Tyrunt,"n39,tDaytime",Red,Upright
+Tyrantrum,,697,Strong Jaw,Rock Head,,Rock,Dragon,82,121,119,69,59,71,25,2700,Despot Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,182,45,Monster,Dragon,30,70,FALSE,Tyrunt,n39-tDaytime,Red,Upright
 Amaura,,698,Refrigerate,Snow Warning,,Rock,Ice,77,59,50,67,63,46,13,252,Tundra Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,72,45,Monster,,30,70,TRUE,,,Blue,Quadruped
-Aurorus,,699,Refrigerate,Snow Warning,,Rock,Ice,123,77,72,99,92,58,27,2250,Tundra Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,104,45,Monster,,30,70,FALSE,Amaura,"n39,tNighttime",Blue,Quadruped
-Sylveon,,700,Cute Charm,Pixilate,,Fairy,,95,65,65,110,130,60,10,235,Intertwining Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,70,FALSE,Eevee,"iAmie,mFairymove",Pink,Quadruped
+Aurorus,,699,Refrigerate,Snow Warning,,Rock,Ice,123,77,72,99,92,58,27,2250,Tundra Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,104,45,Monster,,30,70,FALSE,Amaura,n39-tNighttime,Blue,Quadruped
+Sylveon,,700,Cute Charm,Pixilate,,Fairy,,95,65,65,110,130,60,10,235,Intertwining Pokémon,6,0.125,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,45,Field,,35,70,FALSE,Eevee,iAmie-mFairymove,Pink,Quadruped
 Hawlucha,,701,Limber,Unburden,Mold Breaker,Fighting,Flying,78,92,75,74,63,118,8,215,Wrestling Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,175,100,Flying,Human-Like,20,70,FALSE,,,Green,Humanoid
 Dedenne,,702,Cheek Pouch,Pickup,Plus,Electric,Fairy,67,58,57,81,67,101,2,22,Antenna Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,151,180,Field,Fairy,20,70,FALSE,,,Yellow,Upright
 Carbink,,703,Clear Body,Sturdy,,Rock,Fairy,50,50,150,50,150,50,3,57,Jewel Pokémon,6,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,100,60,Fairy,Mineral,25,70,FALSE,,,Gray,Ball
 Goomy,,704,Sap Sipper,Hydration,Gooey,Dragon,,45,50,35,55,75,40,3,28,Soft Tissue Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,60,45,Dragon,,40,35,TRUE,,,Purple,Squiggle
 Sliggoo,,705,Sap Sipper,Hydration,Gooey,Dragon,,68,75,53,83,113,60,8,175,Soft Tissue Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,158,45,Dragon,,40,35,TRUE,Goomy,n40,Purple,Squiggle
-Goodra,,706,Sap Sipper,Hydration,Gooey,Dragon,,90,100,70,110,150,80,20,1505,Dragon Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,270,45,Dragon,,40,35,FALSE,Sliggoo,"n50,cRain",Purple,Upright
+Goodra,,706,Sap Sipper,Hydration,Gooey,Dragon,,90,100,70,110,150,80,20,1505,Dragon Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,270,45,Dragon,,40,35,FALSE,Sliggoo,n50-cRain,Purple,Upright
 Klefki,,707,Prankster,Magician,,Steel,Fairy,57,80,91,80,87,75,2,30,Key Ring Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,165,75,Mineral,,20,70,FALSE,,,Gray,Ball
 Phantump,,708,Natural Cure,Frisk,Harvest,Ghost,Grass,43,70,48,50,60,38,4,70,Stump Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,62,120,Grass,Amorphous,20,70,TRUE,,,Brown,Arms
 Trevenant,,709,Natural Cure,Frisk,Harvest,Ghost,Grass,85,110,76,65,82,56,15,710,Elder Tree Pokémon,6,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,166,60,Grass,Amorphous,20,70,FALSE,Phantump,oTrade,Brown,Tentacles
@@ -905,9 +905,9 @@ Ribombee,,743,Honey Gather,Shield Dust,Sweet Veil,Bug,Fairy,60,55,60,95,70,124,2
 Ribombee Totem,Totem,743,Honey Gather,Shield Dust,Sweet Veil,Bug,Fairy,60,55,60,95,70,124,4,20,Bee Fly Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,162,75,Bug,Fairy,20,70,FALSE,Cutiefly,n25,Yellow,Bug-Wings
 Rockruff,,744,Keen Eye,Vital Spirit,Steadfast,Rock,,45,65,40,30,40,60,5,92,Puppy Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,56,190,Field,,15,70,TRUE,,,Brown,Quadruped
 Rockruff Own Tempo,Own Tempo,744,Own Tempo,,,Rock,,45,65,40,30,40,60,5,92,Puppy Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,56,190,Field,,15,70,TRUE,,,Brown,Quadruped
-Lycanroc,Dusk,745,Tough Claws,,,Rock,,75,117,65,55,65,110,8,250,Wolf Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,170,90,Field,,15,70,FALSE,Rockruff,"n25,tDusk",Brown,Quadruped
-Lycanroc Midday,Midday,745,Keen Eye,Sand Rush,Steadfast,Rock,,75,115,65,55,65,112,8,250,Wolf Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,170,90,Field,,15,70,FALSE,Rockruff,"n25,tDaytime",Brown,Quadruped
-Lycanroc Midnight,Midnight,745,Keen Eye,Vital Spirit,No Guard,Rock,,85,115,75,55,75,82,11,250,Wolf Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,170,90,Field,,15,70,FALSE,Rockruff,"n25,tNighttime",Brown,Quadruped
+Lycanroc,Dusk,745,Tough Claws,,,Rock,,75,117,65,55,65,110,8,250,Wolf Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,170,90,Field,,15,70,FALSE,Rockruff,n25-tDusk,Brown,Quadruped
+Lycanroc Midday,Midday,745,Keen Eye,Sand Rush,Steadfast,Rock,,75,115,65,55,65,112,8,250,Wolf Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,170,90,Field,,15,70,FALSE,Rockruff,n25-tDaytime,Brown,Quadruped
+Lycanroc Midnight,Midnight,745,Keen Eye,Vital Spirit,No Guard,Rock,,85,115,75,55,75,82,11,250,Wolf Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,170,90,Field,,15,70,FALSE,Rockruff,n25-tNighttime,Brown,Quadruped
 Wishiwashi,Solo,746,Schooling,,,Water,,45,20,20,25,25,40,2,3,Small Fry Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,61,60,Water 2,,15,70,FALSE,,,Blue,Fish
 Wishiwashi ,School,746,Schooling,,,Water,,45,140,130,140,135,30,82,786,Small Fry Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,217,60,Water 2,,15,70,FALSE,,,Blue,Fish
 Mareanie,,747,Merciless,Limber,Regenerator,Poison,Water,50,53,62,43,52,45,4,80,Brutal Star Pokémon,7,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,61,190,Water 1,,20,70,TRUE,,,Blue,Blob
@@ -975,8 +975,8 @@ Tapu Bulu,,787,Grassy Surge,Telepathy,,Grass,Fairy,70,130,115,85,95,75,19,455,La
 Tapu Fini,,788,Misty Surge,Telepathy,,Water,Fairy,70,75,115,95,130,85,13,212,Land Spirit Pokémon,7,0,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,257,3,Undiscovered,,15,70,FALSE,,,Purple,Arms
 Cosmog,,789,Unaware,,,Psychic,,43,29,31,29,31,37,2,1,Nebula Pokémon,7,0,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,40,45,Undiscovered,,120,0,TRUE,,,Blue,Ball
 Cosmoem,,790,Sturdy,,,Psychic,,43,29,131,29,131,37,1,9999,Protostar Pokémon,7,0,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,140,45,Undiscovered,,120,0,TRUE,Cosmog,n43,Blue,Ball
-Solgaleo,,791,Full Metal Body,,,Psychic,Steel,137,137,107,113,89,97,34,2300,Sunne Pokémon,7,0,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,306,45,Undiscovered,,120,0,FALSE,Cosmoem,"53,tDaytime",White,Quadruped
-Lunala,,792,Shadow Shield,,,Psychic,Ghost,137,113,89,137,107,97,40,1200,Moone Pokémon,7,0,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,306,45,Undiscovered,,120,0,FALSE,Cosmoem,"53,tNighttime",Purple,Wings
+Solgaleo,,791,Full Metal Body,,,Psychic,Steel,137,137,107,113,89,97,34,2300,Sunne Pokémon,7,0,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,306,45,Undiscovered,,120,0,FALSE,Cosmoem,n53-tDaytime,White,Quadruped
+Lunala,,792,Shadow Shield,,,Psychic,Ghost,137,113,89,137,107,97,40,1200,Moone Pokémon,7,0,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,306,45,Undiscovered,,120,0,FALSE,Cosmoem,n53-tNighttime,Purple,Wings
 Nihilego,,793,Beast Boost,,,Rock,Poison,109,53,47,127,131,103,12,555,Parasite Pokémon,7,0,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,257,45,Undiscovered,,120,0,FALSE,,,White,Tentacles
 Buzzwole,,794,Beast Boost,,,Bug,Fighting,107,139,139,53,53,79,24,3336,Swollen Pokémon,7,0,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,257,45,Undiscovered,,120,0,FALSE,,,Red,Tentacles
 Pheromosa,,795,Beast Boost,,,Bug,Fighting,71,137,37,137,37,151,18,250,Lissome Pokémon,7,0,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,257,45,Undiscovered,,120,0,FALSE,,,White,Humanoid
@@ -1048,10 +1048,10 @@ Cramorant,,845,Gulp Missile,,,Flying,Water,70,85,55,85,95,85,8,180,Gulp Pokémon
 Arrokuda,,846,Swift Swim,Propeller Tail,,Water,,41,63,40,40,30,66,5,10,Rush Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,56,255,Water 2,,20,50,TRUE,,,Brown,Fish
 Barraskewda,,847,Swift Swim,Propeller Tail,,Water,,61,123,60,60,50,136,13,300,Skewer Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,172,60,Water 2,,20,50,FALSE,Arrokuda,n26,Brown,Fish
 Toxel,,848,Rattled,Static,Klutz,Electric,Poison,40,38,35,54,35,40,4,110,Baby Pokémon,8,0.5,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,48,75,Undiscovered,,25,50,TRUE,,,Purple,Upright
-Toxtricity,Amped,849,Punk Rock,Plus,Technician,Electric,Poison,75,98,70,114,70,75,16,400,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,"n30,yAmped",Purple,Upright
-Toxtricity Amped Gmax,Amped Gmax,849,Punk Rock,Plus,Technician,Electric,Poison,75,98,70,114,70,75,240,10000,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,"n30,yAmped",Purple,Upright
-Toxtricity Low Key,Low Key,849,Punk Rock,Minus,Technician,Electric,Poison,75,98,70,114,70,75,16,400,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,"n30,yLowkey",Purple,Upright
-Toxtricity Low Key Gmax,Low Key Gmax,849,Punk Rock,Minus,Technician,Electric,Poison,75,98,70,114,70,75,240,10000,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,"n30,yLowkey",Purple,Upright
+Toxtricity,Amped,849,Punk Rock,Plus,Technician,Electric,Poison,75,98,70,114,70,75,16,400,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,n30-yAmped,Purple,Upright
+Toxtricity Amped Gmax,Amped Gmax,849,Punk Rock,Plus,Technician,Electric,Poison,75,98,70,114,70,75,240,10000,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,n30-yAmped,Purple,Upright
+Toxtricity Low Key,Low Key,849,Punk Rock,Minus,Technician,Electric,Poison,75,98,70,114,70,75,16,400,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,n30-yLowkey,Purple,Upright
+Toxtricity Low Key Gmax,Low Key Gmax,849,Punk Rock,Minus,Technician,Electric,Poison,75,98,70,114,70,75,240,10000,Punk Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,176,45,Human-Like,,25,50,FALSE,Toxel,n30-yLowkey,Purple,Upright
 Sizzlipede,,850,Flash Fire,White Smoke,Flame Body,Fire,Bug,50,65,45,50,50,45,7,10,Radiator Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,61,190,Bug,,20,50,TRUE,,,Red,Tentacles
 Centiskorch,,851,Flash Fire,White Smoke,Flame Body,Fire,Bug,100,115,65,90,90,65,30,1200,Radiator Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,184,75,Bug,,20,50,FALSE,Sizzlipede,n28,Red,Tentacles
 Centiskorch Gmax,Gmax,851,Flash Fire,White Smoke,Flame Body,Fire,Bug,100,115,65,90,90,65,750,10000,Radiator Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,184,75,Bug,,20,50,FALSE,Sizzlipede,n28,Red,Tentacles
@@ -1067,19 +1067,19 @@ Impidimp,,859,Prankster,Frisk,Pickpocket,Dark,Fairy,45,45,30,55,40,50,4,55,Wily 
 Morgrem,,860,Prankster,Frisk,Pickpocket,Dark,Fairy,65,60,45,75,55,70,8,125,Devious Pokémon,8,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,130,120,Fairy,Human-Like,20,50,TRUE,Impidimp,n32,Pink,Humanoid
 Grimmsnarl,,861,Prankster,Frisk,Pickpocket,Dark,Fairy,95,120,65,95,75,60,15,610,Bulk Up Pokémon,8,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,255,45,Fairy,Human-Like,20,50,FALSE,Morgrem,n42,Purple,Humanoid
 Grimmsnarl Gmax,Gmax,861,Prankster,Frisk,Pickpocket,Dark,Fairy,95,120,65,95,75,60,320,10000,Bulk Up Pokémon,8,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,255,45,Fairy,Human-Like,20,50,FALSE,Morgrem,n42,Purple,Humanoid
-Obstagoon,,862,Reckless,Guts,Defiant,Dark,Normal,93,90,101,60,81,95,16,460,Blocking Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,260,45,Field,,15,50,FALSE,Linoone,"n35,tNighttime",Gray,Upright
+Obstagoon,,862,Reckless,Guts,Defiant,Dark,Normal,93,90,101,60,81,95,16,460,Blocking Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,260,45,Field,,15,50,FALSE,Linoone,n35-tNighttime,Gray,Upright
 Perrserker,,863,Battle Armor,Tough Claws,Steely Spirit,Steel,,70,110,100,50,60,50,8,280,Viking Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,154,90,Field,,20,50,FALSE,Meowth,n28,Brown,Upright
 Cursola,,864,Weak Armor,Perish Body,,Ghost,,60,95,50,145,130,30,10,4,Coral Pokémon,8,0.75,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,179,30,Water 1,Water 3,20,50,FALSE,Corsola,n38,White,Arms
-Sirfetchd,,865,Steadfast,Scrappy,,Fighting,,62,135,95,68,82,65,8,1170,Wild Duck Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,177,45,Flying,Field,20,50,FALSE,Farfetchd,3crit,White,Wings
+Sirfetchd,,865,Steadfast,Scrappy,,Fighting,,62,135,95,68,82,65,8,1170,Wild Duck Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,177,45,Flying,Field,20,50,FALSE,Farfetchd,j3crit,White,Wings
 Mr Rime,,866,Tangled Feet,Screen Cleaner,Ice Body,Ice,Psychic,80,85,75,110,100,70,15,582,Comedian Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,182,45,Human-Like,,25,50,FALSE,Mr Mime,n42,Purple,Humanoid
 Runerigus,,867,Wandering Spirit,,,Ground,Ghost,58,95,145,50,105,30,16,666,Grudge Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,169,90,Mineral,Amorphous,25,50,FALSE,Yamask,dDamage,Gray,Blob
 Milcery,,868,Sweet Veil,Aroma Veil,,Fairy,,45,40,40,50,61,34,2,3,Cream Pokémon,8,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,54,200,Fairy,Amorphous,20,50,TRUE,,,White,Ball
-Alcremie,,869,Sweet Veil,Aroma Veil,,Fairy,,65,60,75,110,121,64,3,5,Cream Pokémon,8,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,100,Fairy,Amorphous,20,50,FALSE,Milcery,"zSpin,hSweet",White,Blob
-Alcremie Gmax,Gmax,869,Sweet Veil,Aroma Veil,,Fairy,,65,60,75,110,121,64,300,10000,Cream Pokémon,8,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,173,100,Fairy,Amorphous,20,50,FALSE,Milcery,"zSpin,hSweet",White,Blob
+Alcremie,,869,Sweet Veil,Aroma Veil,,Fairy,,65,60,75,110,121,64,3,5,Cream Pokémon,8,1,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,173,100,Fairy,Amorphous,20,50,FALSE,Milcery,zSpin-hSweet,White,Blob
+Alcremie Gmax,Gmax,869,Sweet Veil,Aroma Veil,,Fairy,,65,60,75,110,121,64,300,10000,Cream Pokémon,8,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,173,100,Fairy,Amorphous,20,50,FALSE,Milcery,zSpin-hSweet,White,Blob
 Falinks,,870,Battle Armor,Defiant,,Fighting,,65,100,100,70,60,75,30,620,Formation Pokémon,8,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,165,45,Fairy,Mineral,25,50,FALSE,,,Yellow,Heads
 Pincurchin,,871,Lightning Rod,Electric Surge,,Electric,,48,101,95,91,85,15,3,10,Sea Urchin Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,152,75,Water 1,Amorphous,20,50,FALSE,,,Purple,Tentacles
 Snom,,872,Shield Dust,Ice Scales,,Ice,Bug,30,25,35,45,30,20,3,38,Worm Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,37,190,Bug,,20,50,TRUE,,,White,Squiggle
-Frosmoth,,873,Shield Dust,Ice Scales,,Ice,Bug,70,65,60,125,90,65,13,420,Frost Moth Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,168,75,Bug,,20,50,FALSE,Snom,"fFriend,tNighttime",White,Bug-Wings
+Frosmoth,,873,Shield Dust,Ice Scales,,Ice,Bug,70,65,60,125,90,65,13,420,Frost Moth Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,168,75,Bug,,20,50,FALSE,Snom,fFriend-tNighttime,White,Bug-Wings
 Stonjourner,,874,Power Spot,,,Rock,,100,125,135,20,20,70,25,5200,Big Rock Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,165,60,Mineral,,25,50,FALSE,,,Gray,Legs
 Eiscue ,Ice,875,Ice Face,,,Ice,,75,80,110,65,90,50,14,890,Penguin Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,165,60,Water 1,Field,25,50,FALSE,,,Blue,Upright
 Eiscue Noice,Noice,875,Ice Face,,,Ice,,75,80,70,65,50,130,14,890,Penguin Pokémon,8,0.5,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,165,60,Water 1,Field,25,50,FALSE,,,Blue,Upright
