@@ -35,7 +35,7 @@ std::string Evolution::MethodToString(int i)
 }
 
 Pokemon_Data::Pokemon_Data(
-	int In_DexNum,
+	int In_DexNum, int In_FormNum,
 	std::string In_Name, std::string In_FormName, std::string In_Classification,
 	bool In_IsDefaultForm, bool In_FormsSwitchable,
 	Type In_Type1, Type In_Type2,
@@ -830,7 +830,7 @@ Pokedex::Pokedex()
 		}
 
 		Pokemon_Data* newMon = new Pokemon_Data(
-			In_DexNum,
+			In_DexNum, pokedex[In_DexNum].size(),
 			In_Name, In_FormName, In_Classification,
 			In_IsDefaultForm, In_FormsSwitchable,
 			In_Type1, In_Type2,

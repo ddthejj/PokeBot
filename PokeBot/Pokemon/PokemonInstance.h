@@ -70,6 +70,7 @@ class Pokemon_Instance
 	uint8_t HPIV = 0, AttackIV = 0, DefenseIV = 0, SpecialAttackIV = 0, SpecialDefenseIV = 0, SpeedIV = 0; // 1 - 31
 	uint8_t HPEV = 0, AttackEV = 0, DefenseEV = 0, SpecialAttackEV = 0, SpecialDefenseEV = 0, SpeedEV = 0; // 0 - 255
 	Pokemon_Nature Nature = Pokemon_Nature::None;
+	Pokemon_Gender Gender = Pokemon_Gender::Genderless;
 	uint8_t Happiness = 0; // 0 - 255
 	// Characteristic
 	uint8_t Affection = 0; // 0 - 255
@@ -102,8 +103,15 @@ public:
 	int GetSpecialDefenseEV() { return (int)SpecialDefenseEV; }
 	int GetSpeedEV() { return (int)SpeedEV; }
 	Pokemon_Nature GetNature() { return Nature; }
+	Pokemon_Gender GetGender() { return Gender; }
 	int GetFriendship() { return (int)Happiness; }
 	int GetAffection() { return (int)Affection; }
 
-	Pokemon_Gender GetGender();
+	void Save();
+
+protected:
+
+	Pokemon_Gender SetGender();
+	Pokemon_Nature SetNature();
+	bool SetShiny();
 };

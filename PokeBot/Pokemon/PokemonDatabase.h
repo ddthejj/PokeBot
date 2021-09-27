@@ -107,7 +107,7 @@ public:
 
 	Pokemon_Data() {}
 	Pokemon_Data(
-		int In_DexNum,
+		int In_DexNum, int In_FormNum,
 		std::string In_Name, std::string In_FormName, std::string In_Classification,
 		bool In_IsDefaultForm, bool In_FormsSwitchable,
 		Type In_Type1, Type In_Type2,
@@ -130,7 +130,7 @@ public:
 	);
 	~Pokemon_Data();
 
-	int DexNum = -1;
+	int DexNum = -1; int FormNum = -1;
 	std::string Name = "ERROR_NAME";
 	std::string FormName = "ERROR_FORM";
 	std::string Classification = "ERROR_GENUS";

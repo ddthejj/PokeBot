@@ -2,7 +2,7 @@
 #include "Event.h"
 
 class DiscordUser;
-class Pokemon_Data;
+class Pokemon_Instance;
 
 class Encounter : public Event
 {
@@ -10,7 +10,7 @@ public:
 
 	Encounter();
 
-	Pokemon_Data* encounteredMon;
+	Pokemon_Instance* encounteredMon = nullptr;
 
 	virtual void Begin() override;
 	virtual void End() override;

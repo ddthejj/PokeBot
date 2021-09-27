@@ -4,6 +4,7 @@
 #include "../Event/Release.h"
 #include "../Users/Server.h"
 #include "../Pokemon/PokemonDatabase.h"
+#include "../Pokemon/PokemonInstance.h"
 
 #include <Windows.h>
 
@@ -145,7 +146,7 @@ bool DiscordUser::IsInEncounter()
 	return (currentEvent && currentEvent->IsType(EventType::Encounter) && !currentEvent->IsOver());
 }
 
-void DiscordUser::StartEncounter(Pokemon_Data* mon)
+void DiscordUser::StartEncounter(Pokemon_Instance* mon)
 {
 	if (currentEvent)
 	{
@@ -158,7 +159,7 @@ void DiscordUser::StartEncounter(Pokemon_Data* mon)
 	currentEvent->Begin();
 }
 
-Pokemon_Data* DiscordUser::CatchEncounter()
+Pokemon_Instance* DiscordUser::CatchEncounter()
 {
 	if (currentEvent && currentEvent->IsType(EventType::Encounter))
 	{
@@ -231,7 +232,7 @@ std::string DiscordUser::ConfirmRelease()
 {
 	if (currentEvent && currentEvent->IsType(EventType::Release))
 	{
-		std::string releasedName = party[((ReleaseEvent*)currentEvent)->Index()]->Name;
+		std::string releasedName = party[((ReleaseEvent*)currentEvent)->Index()]->GetSpecies()->Name;
 
 		((ReleaseEvent*)currentEvent)->Confirm(this);
 		delete currentEvent;
@@ -251,7 +252,7 @@ bool DiscordUser::IsConfirmingRelease()
 	}
 }
 
-void DiscordUser::AddPokemon(Pokemon_Data* mon)
+void DiscordUser::AddPokemon(Pokemon_Instance* mon)
 {
 	party.push_back(mon);
 	Save();

@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-class Pokemon_Data;
+class Pokemon_Instance;
 class Pokedex;
 class Event;
 enum class EventType;
@@ -13,7 +13,7 @@ class DiscordUser
 {
 	int64_t id = -1;
 	int64_t serverID = -1;
-	std::vector<Pokemon_Data*> party;
+	std::vector<Pokemon_Instance*> party;
 
 	Event* currentEvent = nullptr;
 
@@ -33,8 +33,8 @@ public:
 	EventType GetEventType();
 	
 	bool IsInEncounter();
-	void StartEncounter(Pokemon_Data* mon);
-	Pokemon_Data* CatchEncounter();
+	void StartEncounter(Pokemon_Instance* mon);
+	Pokemon_Instance* CatchEncounter();
 	void RunEncounter();
 	void EndEncounter();
 
@@ -45,9 +45,9 @@ public:
 	std::string ConfirmRelease();
 	bool IsConfirmingRelease();
 
-	const std::vector<Pokemon_Data*> Party() { return party; }
+	const std::vector<Pokemon_Instance*> Party() { return party; }
 
-	void AddPokemon(Pokemon_Data* mon);
+	void AddPokemon(Pokemon_Instance* mon);
 	void ReleasePokemon(int index);
 
 private:
