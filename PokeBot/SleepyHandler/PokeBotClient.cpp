@@ -2,6 +2,7 @@
 
 #include "../Pokemon/PokemonDatabase.h"
 #include "../Pokemon/PokemonInstance.h"
+#include "../Pokemon/Evolution.h"
 #include "../Map/Generator.h"
 #include "../Users/Server.h"
 #include "../Event/Event.h"
@@ -224,14 +225,14 @@ void PokeBotClient::pkbData(SleepyDiscord::Message message)
 					for (int i = 0; i < monData->EvolvesTo.size(); i++)
 					{
 						// cut out duplicate entries (megas, gmax, alolan / galarian forms, etc)
-						if (i == 0 || monData->EvolvesTo[i]->Name != monData->EvolvesTo[0]->Name)
+						if (i == 0 || monData->EvolvesTo[i].EvolvesTo->Name != monData->EvolvesTo[0].EvolvesTo->Name)
 						{
 							if (i != 0)
 							{
 								dataString += ", ";
 							}
 
-							dataString += monData->EvolvesTo[i]->Name;
+							dataString += monData->EvolvesTo[i].EvolvesTo->Name;
 						}
 					}
 				}

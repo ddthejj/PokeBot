@@ -5,7 +5,7 @@
 
 class Pokemon_Data;
 class Item;
-enum class EvolutionMethod;
+class EvolutionMethod;
 
 enum class Pokemon_Nature
 {

@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <vector>
+#include <string>
 
 class Pokemon_Data;
 class Pokemon_Instance;
@@ -50,6 +51,7 @@ protected:
 public:
 
 	EvolutionMethod() { Type = EvolutionType::None; };
+	static EvolutionMethod* MakeEvolutionMethod(std::string method);
 
 	virtual bool CanEvolve(Pokemon_Instance* pokemon) = 0;
 
@@ -63,6 +65,7 @@ class EvolutionMethodLevel : public EvolutionMethod
 public:
 
 	EvolutionMethodLevel() { Type = EvolutionType::Level; };
+	EvolutionMethodLevel(int In_Level) : EvolutionMethodLevel() { Level = In_Level; }
 
 	virtual bool CanEvolve(Pokemon_Instance* pokemon) override;
 

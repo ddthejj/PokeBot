@@ -46,7 +46,7 @@ Pokemon_Data::Pokemon_Data(
 	int In_EggCycles,
 	int In_BaseHappiness,
 	bool In_CanEvolve,
-	Pokemon_Data* In_EvolvesFrom,
+	Pokemon_Data* In_EvolvesFrom, EvolutionMethod* In_EvolutionType,
 	PokemonColor In_Color,
 	PokemonShape In_Shape
 )
@@ -69,7 +69,7 @@ Pokemon_Data::Pokemon_Data(
 	BaseHappiness = In_BaseHappiness;
 	CanEvolve = In_CanEvolve;
 	EvolvesFrom = In_EvolvesFrom;
-	EvolvesTo = std::vector<Pokemon_Data*>();
+	EvolvesTo = std::vector<Evolution>();
 	Color = In_Color;
 	Shape = In_Shape;
 }
@@ -758,9 +758,12 @@ Pokedex::Pokedex()
 		int In_EggCycles = atoi(words[(int)CSV_Sort::egg_cycles].c_str());
 		int In_BaseHappiness = atoi(words[(int)CSV_Sort::base_happiness].c_str());
 		bool In_CanEvolve = words[(int)CSV_Sort::can_evolve] == std::string("TRUE");
-		Pokemon_Data* In_EvolvesFrom = nullptr;
+		Pokemon_Data* In_EvolvesFrom = nullptr; std::vector<EvolutionMethod> In_EvolutionType; 
 		PokemonColor In_Color = Pokemon_Data::StringToColor(words[(int)CSV_Sort::primary_color]);
 		PokemonShape In_Shape = Pokemon_Data::StringToShape(words[(int)CSV_Sort::shape]);
+
+		// parse with ',' as delim
+		EvolutionMethod::MakeEvolutionMethod(words[(int)CSV_Sort::evolve_condition]);
 
 		if (!In_IsDefaultForm)
 		{
@@ -786,7 +789,7 @@ Pokedex::Pokedex()
 			In_EggCycles,
 			In_BaseHappiness,
 			In_CanEvolve,
-			In_EvolvesFrom,
+			In_EvolvesFrom, In_EvolutionType,
 			In_Color,
 			In_Shape
 		);
@@ -842,12 +845,12 @@ Pokedex::Pokedex()
 					if (_stricmp(prev_mon->Name.c_str(), EvolvesFrom.c_str()) == 0)
 					{
 						mon->EvolvesFrom = prev_mon;
-						prev_mon->EvolvesTo.push_back(mon);
+						prev_mon->EvolvesTo.push_back(Evolution(mon, mon->EvolutionType));
 					}
 					else if (0 == _stricmp(prev_mon->FormName.c_str(), EvolvesFrom.c_str()))
 					{
 						mon->EvolvesFrom = prev_mon;
-						prev_mon->EvolvesTo.push_back(mon);
+						prev_mon->EvolvesTo.push_back(Evolution(mon, mon->EvolutionType));
 					}
 				}
 			}
@@ -867,12 +870,12 @@ Pokedex::Pokedex()
 						if (0 == _stricmp(prev_mon->Name.c_str(), EvolvesFrom.c_str()))
 						{
 							mon->EvolvesFrom = prev_mon;
-							prev_mon->EvolvesTo.push_back(mon);
+							prev_mon->EvolvesTo.push_back(Evolution(mon, mon->EvolutionType));
 						}
 						else if (0 == _stricmp(prev_mon->FormName.c_str(), EvolvesFrom.c_str()))
 						{
 							mon->EvolvesFrom = prev_mon;
-							prev_mon->EvolvesTo.push_back(mon);
+							prev_mon->EvolvesTo.push_back(Evolution(mon, mon->EvolutionType));
 						}
 					}
 				}
