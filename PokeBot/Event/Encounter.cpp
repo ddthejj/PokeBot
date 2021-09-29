@@ -22,6 +22,7 @@ void Encounter::End()
 void Encounter::Run(DiscordUser* trainer)
 {
 	End();
+	delete encounteredMon;
 }
 
 void Encounter::Catch(DiscordUser* trainer)

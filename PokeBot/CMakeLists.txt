@@ -11,7 +11,7 @@ Event/Event.h Event/Event.cpp
 Event/Encounter.h Event/Encounter.cpp 
  Event/Release.h Event/Release.cpp 
  "Pokemon/Evolution.h" "Pokemon/Evolution.cpp"
-  "Pokemon/PokemonInstance.h" "Pokemon/PokemonInstance.cpp")
+  "Pokemon/PokemonInstance.h" "Pokemon/PokemonInstance.cpp" )
 
 
 add_subdirectory(deps/sleepy-discord)

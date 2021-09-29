@@ -88,6 +88,10 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 		{
 			pkbNo(message);
 		}
+		else if (message.startsWith("-pkb summary"))
+		{
+			pkbSummary(message);
+		}
 		else
 		{
 			const char* command;
@@ -396,7 +400,7 @@ void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 				//Pokemon_Instance* monInstance = new Pokemon_Instance(monData);
 				//Pokemon_Gender gender = monInstance->Gender();
 
-				author->StartEncounter(monData);
+				author->StartEncounter(new Pokemon_Instance(monData));
 			}
 			else
 			{
@@ -424,7 +428,7 @@ void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 				std::string("Encountered random Pokemon, " + monData->Name + "!")
 			);
 
-			author->StartEncounter(monData);
+			author->StartEncounter(new Pokemon_Instance(monData));
 		}
 		else
 		{
@@ -439,8 +443,8 @@ void PokeBotClient::pkbCatch(SleepyDiscord::Message message)
 
 	if (author->IsInEncounter())
 	{
-		Pokemon_Data* mon = author->CatchEncounter();
-		sendMessage(message.channelID, std::string("You caught ") + mon->Name + "!");
+		Pokemon_Instance* mon = author->CatchEncounter();
+		sendMessage(message.channelID, std::string("You caught ") + mon->GetSpecies()->Name + "!");
 	}
 	else
 	{
@@ -465,14 +469,14 @@ void PokeBotClient::pkbRun(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbParty(SleepyDiscord::Message message)
 {
-	std::vector<Pokemon_Data*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+	std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
 	std::string partyStr;
 
 	for (int i = 0; i < party.size(); i++)
 	{
-		Pokemon_Data* mon = party[i];
+		Pokemon_Instance* mon = party[i];
 
-		partyStr += mon->Name;
+		partyStr += mon->GetSpecies()->Name;
 
 		if (i < party.size() - 1)
 		{
@@ -502,7 +506,7 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 
 			std::string partyStr;
 
-			std::vector<Pokemon_Data*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+			std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
 			for (int i = 0; i < party.size(); i++)
 			{
 				char buffer[8];
@@ -511,9 +515,9 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 				partyStr += buffer;
 				partyStr += ": ";
 
-				Pokemon_Data* mon = party[i];
+				Pokemon_Instance* mon = party[i];
 
-				partyStr += mon->Name;
+				partyStr += mon->GetSpecies()->Name;
 
 				if (i < party.size() - 1)
 				{
@@ -600,7 +604,7 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 			if (releaseNum > 0 && releaseNum <= joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party().size())
 			{
 				author->SelectRelease(releaseNum - 1);
-				sendMessage(message.channelID, std::string("Release pokemon \"") + author->Party()[releaseNum - 1]->Name + "\"?");
+				sendMessage(message.channelID, std::string("Release pokemon \"") + author->Party()[releaseNum - 1]->GetSpecies()->Name + "\"?");
 			}
 			else
 			{
@@ -703,4 +707,63 @@ void PokeBotClient::pkbNo(SleepyDiscord::Message message)
 	}
 
 	sendMessage(message.channelID, std::string("What are you trying to say no to, ") + message.author.username + "?");
+}
+
+void PokeBotClient::pkbSummary(SleepyDiscord::Message message)
+{
+	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+
+	if (message.length() == std::string("-pkb summary").length())
+	{
+		std::string partyStr;
+
+		std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+		for (int i = 0; i < party.size(); i++)
+		{
+			char buffer[8];
+			_itoa_s(i + 1, buffer, 10);
+
+			partyStr += buffer;
+			partyStr += ": ";
+
+			Pokemon_Instance* mon = party[i];
+
+			partyStr += mon->GetSpecies()->Name;
+
+			if (i < party.size() - 1)
+			{
+				partyStr += +"\n";
+			}
+		}
+
+		sendMessage(message.channelID, std::string("Select a pokemon to view the summary of, ") + message.author.username + '\n' + partyStr);
+
+	}
+	else
+	{
+		const char* buffer = message.content.c_str();
+		const char* params = &(buffer[std::string("pkb release").length() + 1]);
+
+		// remove white space before parameters
+		while (*params == ' ')
+		{
+			params++;
+		}
+		std::string paramsStr(params);
+
+
+		std::string::const_iterator it = paramsStr.begin();
+
+		int summaryNum = atoi(params);
+
+		if (summaryNum > 0 && summaryNum <= joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party().size())
+		{
+			std::string summary = author->Party()[summaryNum - 1]->GetSummary();
+			sendMessage(message.channelID, summary);
+		}
+		else
+		{
+			sendMessage(message.channelID, std::string("Unrecognized command \"") + params + "\"");
+		}
+	}
 }

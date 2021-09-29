@@ -46,4 +46,6 @@ public:
 	void pkbYes(SleepyDiscord::Message message);
 
 	void pkbNo(SleepyDiscord::Message message);
+
+	void pkbSummary(SleepyDiscord::Message message);
 };

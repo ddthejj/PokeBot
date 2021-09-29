@@ -27,25 +27,25 @@ enum class Pokemon_Nature
 	Adamant = UpAttack | DownSpAttack,
 	Naughty = UpAttack | DownSpDefense,
 	Bold = UpDefense | DownAttack,
-	Docile = None,
+	Docile = None - 1,
 	Relaxed = UpDefense | DownSpeed,
 	Impish = UpDefense | DownSpAttack,
 	Lax = UpDefense | DownSpDefense,
 	Timid = UpSpeed | DownAttack,
 	Hasty = UpSpeed | DownDefense,
-	Serious = None,
+	Serious = None - 2,
 	Jolly = UpSpeed | DownSpAttack,
 	Naive = UpSpeed | DownSpDefense,
 	Modest = UpSpAttack | DownAttack,
 	Mild = UpSpAttack | DownDefense,
 	Quiet = UpSpAttack | DownSpeed,
-	Bashful = None,
+	Bashful = None - 3,
 	Rash = UpSpAttack | DownSpDefense,
 	Calm = UpSpDefense | DownAttack,
 	Gentle = UpSpDefense | DownDefense,
 	Sassy = UpSpDefense | DownSpeed,
 	Careful = UpSpDefense | DownSpAttack,
-	Quirky = None
+	Quirky = None - 4
 };
 
 enum class Pokemon_Gender
@@ -81,6 +81,9 @@ class Pokemon_Instance
 public:
 
 	Pokemon_Instance(Pokemon_Data* data);
+	Pokemon_Instance(Pokemon_Data* data, uint32_t In_PersonalityValue,
+		uint8_t In_HPIV, uint8_t In_AttackIV, uint8_t In_DefenseIV, uint8_t In_SpecialAttackIV, uint8_t In_SpecialDefenseIV, uint8_t In_SpeedIV,
+		uint8_t In_HPEV, uint8_t In_AttackEV, uint8_t In_DefenseEV, uint8_t In_SpecialAttackEV, uint8_t In_SpecialDefenseEV, uint8_t In_SpeedEV);
 
 	Pokemon_Data* GetSpecies() { return Data; }
 	std::string GetNickname() { return Nickname; }
@@ -107,11 +110,15 @@ public:
 	int GetFriendship() { return (int)Happiness; }
 	int GetAffection() { return (int)Affection; }
 
-	void Save();
+	std::string Save();
+	std::string GetSummary();
+
+	static std::string NatureToString(Pokemon_Nature nature);
 
 protected:
 
 	Pokemon_Gender SetGender();
 	Pokemon_Nature SetNature();
 	bool SetShiny();
+	int8_t SetAbility();
 };

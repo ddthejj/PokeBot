@@ -15,6 +15,11 @@ DiscordUser::~DiscordUser()
 		delete currentEvent;
 		currentEvent = nullptr;
 	}
+
+	for (int i = 0; i < party.size(); i++)
+	{
+		delete party[i];
+	}
 }
 
 void DiscordUser::ParseFile(std::vector<std::string> lines, Pokedex* dex)
@@ -25,7 +30,12 @@ void DiscordUser::ParseFile(std::vector<std::string> lines, Pokedex* dex)
 
 		int pokemonID = atoi(words[0].c_str());
 
-		party.push_back(dex->pokedex[pokemonID][0]);
+		Pokemon_Instance* newMon = new Pokemon_Instance(dex->pokedex[pokemonID][0], (uint32_t)atoi(words[1].c_str()), 
+			atoi(words[2].c_str()), atoi(words[3].c_str()), atoi(words[4].c_str()), atoi(words[5].c_str()), atoi(words[6].c_str()), atoi(words[7].c_str()), 
+			atoi(words[8].c_str()),	atoi(words[9].c_str()), atoi(words[10].c_str()), atoi(words[11].c_str()), atoi(words[12].c_str()), atoi(words[13].c_str())
+			);
+
+		party.push_back(newMon);
 	}
 }
 
@@ -73,10 +83,8 @@ void DiscordUser::Save()
 
 	for (int i = 0; i < party.size(); i++)
 	{
-		Pokemon_Data* mon = party[i];
-		char buffer[8];
-		itoa(mon->DexNum, buffer, 10);
-		std::string line = std::string(buffer) + '\n';
+		Pokemon_Instance* mon = party[i];
+		std::string line = mon->Save();
 
 		WriteFile(hfile, line.c_str(), line.size(), &bytesWritten, NULL);
 		bytesWritten += line.size();

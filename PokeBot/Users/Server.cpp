@@ -60,7 +60,7 @@ DiscordServer::DiscordServer(int64_t In_ID, Pokedex* dex)
 					std::string filename = data.cFileName;
 					int64_t userID = _atoi64(filename.c_str());
 
-					DiscordUser user(userID, id);
+					DiscordUser* user = new DiscordUser(userID, id);
 
 					std::fstream file(serverFilePath + "/" + filename);
 
@@ -74,10 +74,10 @@ DiscordServer::DiscordServer(int64_t In_ID, Pokedex* dex)
 
 					file.close();
 
-					user.ParseFile(lines, dex);
+					user->ParseFile(lines, dex);
 
 
-					users.insert(std::pair<int64_t, DiscordUser>(userID, user));
+					users.insert(std::pair<int64_t, DiscordUser*>(userID, user));
 				}
 
 			} while (FindNextFile(hFind, &data) != 0);
@@ -91,6 +91,14 @@ DiscordServer::DiscordServer(int64_t In_ID, Pokedex* dex)
 	}
 }
 
+DiscordServer::~DiscordServer()
+{
+	for (int i = 0; i < users.size(); i++)
+	{
+		delete users[i];
+	}
+}
+
 bool DiscordServer::IsUserRegistered(int64_t In_ID)
 {
 	return users.count(In_ID) != 0;
@@ -98,7 +106,7 @@ bool DiscordServer::IsUserRegistered(int64_t In_ID)
 
 DiscordUser* DiscordServer::RegisterUser(int64_t In_ID)
 {
-	DiscordUser newUser = DiscordUser();
+	DiscordUser* newUser = new DiscordUser();
 	users.insert(std::make_pair(In_ID, newUser));
 
 	char buffer[256];
@@ -112,10 +120,10 @@ DiscordUser* DiscordServer::RegisterUser(int64_t In_ID)
 
 	CreateFile(serverFilePath.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, LPSECURITY_ATTRIBUTES(), CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
 
-	return &newUser;
+	return newUser;
 }
 
 DiscordUser* DiscordServer::GetUser(int64_t ID)
 {
-	return &users[ID];
+	return users[ID];
 }
