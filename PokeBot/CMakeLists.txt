@@ -17,3 +17,16 @@ Event/Encounter.h Event/Encounter.cpp
 add_subdirectory(deps/sleepy-discord)
 target_link_libraries(PokeBot sleepy-discord)
 target_link_options(PokeBot PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/FORCE:MULTIPLE>)
+
+option(WITH_VLD "With Visual Leak Detection" OFF)
+if(WITH_VLD AND MSVC)
+  message("Enabling Visual Leak Detector")
+  find_library(VLD vld
+    HINTS "deps/")
+  find_file(VLD_H vld.h
+    HINTS "c:/Program Files (x86)/Visual Leak Detector/include" "c:/Program Files/Visual Leak Detector/include")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /FIwinsock2.h")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \"/FI${VLD_H}\"")
+  get_filename_component(VLD_LIBRARY_DIR "${VLD}" PATH)
+  link_directories("${VLD_LIBRARY_DIR}")
+endif()
