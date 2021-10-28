@@ -2,8 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-//#include "vld.h"
-
 int main() 
 {
 	std::ifstream file("../../../../token.txt", std::ios::in);

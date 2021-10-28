@@ -27,6 +27,11 @@ PokeBotClient::~PokeBotClient()
 {
 	delete dex;
 	delete generator;
+
+	for (int i = 0; i < joinedServers.size(); i++)
+	{
+		delete joinedServers[i];
+	}
 }
 
 void PokeBotClient::onMessage(SleepyDiscord::Message message)
@@ -35,13 +40,13 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 	{
 		DiscordUser* author;
 
-		if (!joinedServers[message.serverID.number()].IsUserRegistered(message.author.ID.number())) // check if user is not registered
+		if (!joinedServers[message.serverID.number()]->IsUserRegistered(message.author.ID.number())) // check if user is not registered
 		{
-			author = joinedServers[message.serverID.number()].RegisterUser(message.author.ID.number());
+			author = joinedServers[message.serverID.number()]->RegisterUser(message.author.ID.number());
 		}
 		else
 		{
-			author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+			author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 		}
 
 		if (message.content == "-pkb help")
@@ -104,9 +109,9 @@ void PokeBotClient::onMessage(SleepyDiscord::Message message)
 void PokeBotClient::onServer(SleepyDiscord::Server server)
 {
 	const int64_t serverID = server.ID.number();
-	DiscordServer joinedServer = DiscordServer(serverID, dex);
+	DiscordServer* joinedServer = new DiscordServer(serverID, dex);
 
-	joinedServers.insert(std::pair<int64_t, DiscordServer>(serverID, joinedServer));
+	joinedServers.insert(std::pair<int64_t, DiscordServer*>(serverID, joinedServer));
 }
 
 void PokeBotClient::pkbHelp(SleepyDiscord::Message message)
@@ -368,7 +373,7 @@ void PokeBotClient::pkbGenerate(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	std::string error;
 	if (!author->TryCreateEvent(EventType::Encounter, error))
@@ -439,7 +444,7 @@ void PokeBotClient::pkbEncounter(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbCatch(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	if (author->IsInEncounter())
 	{
@@ -454,7 +459,7 @@ void PokeBotClient::pkbCatch(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbRun(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	if (author->IsInEncounter())
 	{
@@ -469,7 +474,7 @@ void PokeBotClient::pkbRun(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbParty(SleepyDiscord::Message message)
 {
-	std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+	std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number())->Party();
 	std::string partyStr;
 
 	for (int i = 0; i < party.size(); i++)
@@ -489,7 +494,7 @@ void PokeBotClient::pkbParty(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	if (message.length() == std::string("-pkb release").length())
 	{
@@ -506,7 +511,7 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 
 			std::string partyStr;
 
-			std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+			std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number())->Party();
 			for (int i = 0; i < party.size(); i++)
 			{
 				char buffer[8];
@@ -601,7 +606,7 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 
 			int releaseNum = atoi(params);
 
-			if (releaseNum > 0 && releaseNum <= joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party().size())
+			if (releaseNum > 0 && releaseNum <= joinedServers[message.serverID.number()]->GetUser(message.author.ID.number())->Party().size())
 			{
 				author->SelectRelease(releaseNum - 1);
 				sendMessage(message.channelID, std::string("Release pokemon \"") + author->Party()[releaseNum - 1]->GetSpecies()->Name + "\"?");
@@ -616,7 +621,7 @@ void PokeBotClient::pkbRelease(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbCancel(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	if (author->IsInEvent())
 	{
@@ -649,7 +654,7 @@ void PokeBotClient::pkbCancel(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbYes(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	if (author->IsInEvent())
 	{
@@ -680,7 +685,7 @@ void PokeBotClient::pkbYes(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbNo(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	if (author->IsInEvent())
 	{
@@ -711,13 +716,13 @@ void PokeBotClient::pkbNo(SleepyDiscord::Message message)
 
 void PokeBotClient::pkbSummary(SleepyDiscord::Message message)
 {
-	DiscordUser* author = joinedServers[message.serverID.number()].GetUser(message.author.ID.number());
+	DiscordUser* author = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number());
 
 	if (message.length() == std::string("-pkb summary").length())
 	{
 		std::string partyStr;
 
-		std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party();
+		std::vector<Pokemon_Instance*> party = joinedServers[message.serverID.number()]->GetUser(message.author.ID.number())->Party();
 		for (int i = 0; i < party.size(); i++)
 		{
 			char buffer[8];
@@ -756,7 +761,7 @@ void PokeBotClient::pkbSummary(SleepyDiscord::Message message)
 
 		int summaryNum = atoi(params);
 
-		if (summaryNum > 0 && summaryNum <= joinedServers[message.serverID.number()].GetUser(message.author.ID.number())->Party().size())
+		if (summaryNum > 0 && summaryNum <= joinedServers[message.serverID.number()]->GetUser(message.author.ID.number())->Party().size())
 		{
 			std::string summary = author->Party()[summaryNum - 1]->GetSummary();
 			sendMessage(message.channelID, summary);

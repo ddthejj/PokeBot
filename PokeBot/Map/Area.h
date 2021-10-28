@@ -10,4 +10,9 @@ class Area
 	Area* West;
 
 	std::vector<Area*> Access;
-}
+
+public:
+
+	Area(std::string data);
+
+};

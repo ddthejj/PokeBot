@@ -12,7 +12,7 @@ class PokeBotClient : public SleepyDiscord::DiscordClient
 	Pokedex* dex;
 	Generator* generator;
 
-	std::map<int64_t, DiscordServer> joinedServers;
+	std::map<int64_t, DiscordServer*> joinedServers;
 
 public:
 
